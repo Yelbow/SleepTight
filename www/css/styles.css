@@ -18,6 +18,18 @@
     background: cadetblue;
 }
 
+.hero {
+	background: grey;
+	height: 150px;
+	width: 100%;
+}
+
+	.hero-image {
+		height: 150px;
+		width: 100%;
+		object-fit: cover;
+	}
+
 .content-block {
 	display: flex;
 	flex-wrap: wrap;
@@ -25,12 +37,14 @@
 }
 
 	.dataBlock {
-		background: white
+		background: white;
 		border-radius: 4px;
-		width: 40%
-		height: 100px;
+		width: 30%;
+		height: 50px;
+		line-height: 50px;
+		text-align: center;
+		margin: 20px;
 	}
-
 .tabbar {
 	position: absolute;
 	top:15;
