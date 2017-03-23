@@ -19,6 +19,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
     <meta name="format-detection" content="telephone=no">
     <meta name="msapplication-tap-highlight" content="no">
+    <meta http-equiv="Content-Security-Policy" content="img-src 'self' data:">
 
     <!-- Your app title -->
     <title>My App</title>
@@ -96,6 +97,9 @@
                 <div data-page="index" class="page">
                     <!-- Scrollable page content -->
                     <div class="page-content">
+                        <div class="hero">
+                            <img class="hero-image" src="hero-dag.jpg" /> 
+                        </div>
                         <div class="content-block">
                             <div class="dataBlock">test</div>
                             <div class="dataBlock">test</div>
@@ -103,14 +107,6 @@
                             <div class="dataBlock">test</div>
                         </div>
                     </div>
-                </div>
-            </div>
-            <!-- Bottom Toolbar-->
-            <div class="toolbar">
-                <div class="toolbar-inner">
-                    <!-- Toolbar links -->
-                    <a href="http://www.omfgdogs.com/" class="link">Klik hier op!</a>
-                    <a href="#" class="link">Link 2</a>
                 </div>
             </div>
         </div>
