@@ -11,9 +11,36 @@ var mainView = myApp.addView('.view-main', {
     dynamicNavbar: true
 });
 
+var currentpage = "page1";
+var pages = ["page1", "page2", "page3", "page4"];
+
+function setPage(page){
+  currentpage = page;
+  render();
+}
+
+function renderPages(){
+  disableAll();
+  document.getElementById(currentpage).style.display = 'flex';
+}
+
+function disableAllPages(){
+  for (i = 0; i < pages.length; i++){
+    document.getElementById(pages[i]).style.display = 'none';
+  }
+}
+
+$().ready( () => {
+    console.log("Document ready");
+    disableAllPages();
+    renderPages();
+});
+
 // Handle Cordova Device Ready Event
 $$(document).on('deviceready', function() {
     console.log("Device is ready!");
+    disableAllPages();
+    renderPages();
 });
 
 
