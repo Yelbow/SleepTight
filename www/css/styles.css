@@ -48,3 +48,9 @@
 	position: absolute;
 	top:15;
 }
+
+.toolbar {
+
+	position: fixed;
+
+}
