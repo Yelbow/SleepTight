@@ -37,7 +37,6 @@ function setPage4(){
 function renderPages(){
   disableAllPages();
   if (currentpage !== '' || null){
-    console.log(currentpage);
     document.getElementById(currentpage).style.display = 'block';
     console.log(currentpage + " rendered");
   } else {
