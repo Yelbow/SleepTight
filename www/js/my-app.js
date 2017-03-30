@@ -22,10 +22,12 @@ function setPage(page){
 function renderPages(){
   disableAll();
   document.getElementById(currentpage).style.display = 'flex';
+  console.log(currentpage + " rendered");
 }
 
 function disableAllPages(){
   for (i = 0; i < pages.length; i++){
+    console.log("Disabled page:", pages[i]);
     document.getElementById(pages[i]).style.display = 'none';
   }
 }
