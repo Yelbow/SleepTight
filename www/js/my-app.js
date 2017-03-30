@@ -46,10 +46,24 @@ function renderPages(){
 }
 
 function navEventListeners(){
-  document.getElementById("page1Btn").addEventListener("click", setPage1);
-  document.getElementById("page2Btn").addEventListener("click", setPage2);
-  document.getElementById("page3Btn").addEventListener("click", setPage3);
-  document.getElementById("page4Btn").addEventListener("click", setPage4);
+
+  $("#page1Btn").on("click", function(e) {
+    setPage1();
+    e.preventDefault();
+  });
+  $("#page2Btn").on("click", function(e) {
+    setPage2();
+    e.preventDefault();
+  });
+  $("#page3Btn").on("click", function(e) {
+    setPage3();
+    e.preventDefault();
+  });
+  $("#page4Btn").on("click", function(e) {
+    setPage4();
+    e.preventDefault();
+  });
+
 }
 
 function disableAllPages(){
