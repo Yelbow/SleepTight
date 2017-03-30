@@ -14,31 +14,58 @@ var mainView = myApp.addView('.view-main', {
 var currentpage = "page1";
 var pages = ["page1", "page2", "page3", "page4"];
 
-function setPage(page){
-  currentpage = page;
+function setPage1(){
+  currentpage = "page1";
+  renderPages();
+}
+
+function setPage2(){
+  currentpage = "page2";
+  renderPages();
+}
+
+function setPage3(){
+  currentpage = "page3";
+  renderPages();
+}
+
+function setPage4(){
+  currentpage = "page4";
   renderPages();
 }
 
 function renderPages(){
   disableAllPages();
-  document.getElementById(currentpage).style.display = 'flex';
-  console.log(currentpage + " rendered");
+  if (currentpage !== '' || null){
+    console.log(currentpage);
+    document.getElementById(currentpage).style.display = 'block';
+    console.log(currentpage + " rendered");
+  } else {
+    console.log("Current page is empty");
+  }
+  navEventListeners();
+}
+
+function navEventListeners(){
+  document.getElementById("page1Btn").addEventListener("click", setPage1);
+  document.getElementById("page2Btn").addEventListener("click", setPage2);
+  document.getElementById("page3Btn").addEventListener("click", setPage3);
+  document.getElementById("page4Btn").addEventListener("click", setPage4);
 }
 
 function disableAllPages(){
-  for (i = 0; i < pages.length - 1; i++){
-    console.log("Disabled page:", pages[i]);
-    document.getElementById(pages[i]).style.display = 'none';
+  for (i = 0; i < pages.length; i++){
+    if(pages[i] == '' || null){
+      console.log("Page not found: " + pages[i]);
+    } else {
+      document.getElementById(pages[i]).style.display = 'none';
+      console.log("Disabled page:", pages[i]);
+    }
   }
 }
 
 $(document).ready( () => {
     console.log("Document ready");
-    document.getElementById("page1Btn").addEventListener("click", setPage("page1"));
-    document.getElementById("page2Btn").addEventListener("click", setPage("page2"));
-    document.getElementById("page3Btn").addEventListener("click", setPage("page3"));
-    document.getElementById("page4Btn").addEventListener("click", setPage("page4"));
-
     disableAllPages();
     renderPages();
 });
