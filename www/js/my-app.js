@@ -20,7 +20,7 @@ function setPage(page){
 }
 
 function renderPages(){
-  disableAll();
+  disableAllPages();
   document.getElementById(currentpage).style.display = 'flex';
   console.log(currentpage + " rendered");
 }
