@@ -37,133 +37,101 @@
 <body>
     <!-- Status bar overlay for full screen mode (PhoneGap) -->
     <div class="statusbar-overlay"></div>
-
-    <!-- Panels overlay-->
-    <div class="panel-overlay"></div>
-    <!-- Left panel with reveal effect-->
-    <div class="panel panel-left panel-reveal">
-        <div class="content-block">
-            <p>Left panel content goes here</p>
-        </div>
-    </div>
-
-
-
     <!-- Views -->
     <div class="views">
         <!-- Your main view, should have "view-main" class -->
         <div class="view view-main">
             <!-- Top Navbar-->
-            <div class="navbar">
-                <div class="navbar-inner">
+            <div id="header">
+                <span id="logo">SleepTight</span>
+            </div>
+            <!-- <div class="navbar">
+                <div class="navbar-inner"> -->
                     <!-- We need cool sliding animation on title element, so we have additional "sliding" class -->
-                    <div class="center sliding">SleepTight</div>
-                    <div class="right">
+                    <!-- <div class="center sliding">SleepTight</div>
+                    <div class="right"> -->
                         <!--
                           Right link contains only icon - additional "icon-only" class
                           Additional "open-panel" class tells app to open panel when we click on this link
                         -->
-                        <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a>
-                    </div>
+                        <!-- <a href="#" class="link icon-only open-panel"><i class="icon icon-bars"></i></a> -->
+                  <!--   </div>
                 </div>
-            </div>
+            </div> -->
 
             <!-- Tab bar -->
-            <div class="toolbar tabbar tabbar-labels">
+            <!-- <div class="toolbar tabbar tabbar-labels">
                 <div class="toolbar-inner">
-                    <a onclick="setpage('page1')"  class="tab-link active">
+                    <a href="#tab1" class="tab-link active">
                         <i class="icon demo-icon-1"></i>
                         <span class="tabbar-label">Dag</span>
                     </a>
-                    <a onclick="setpage('page2')"  class="tab-link">
+                    <a href="#tab2" class="tab-link">
                         <i class="icon demo-icon-2">
                             <span class="badge bg-red">5</span>
                         </i>
                         <span class="tabbar-label">Week</span>
                     </a>
-                    <a onclick="setpage('page3')"  class="tab-link">
+                    <a href="#tab3" class="tab-link">
                         <i class="icon demo-icon-3"></i>
                         <span class="tabbar-label">Wekker</span>
                     </a>
-                    <a onclick="setpage('page4')"  class="tab-link">
+                    <a href="#tab4" class="tab-link">
                         <i class="icon demo-icon-4"></i>
                         <span class="tabbar-label">Profiel</span>
                     </a>
                 </div>
-            </div>
+            </div> -->
             <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
-
-            <!-- PAGES -->
-            <div id="page1">
-              <div class="pages navbar-through toolbar-through">
-                  <!-- Page, "data-page" contains page name -->
-                  <div data-page="page1" class="page">
-                      <!-- Scrollable page content -->
-                      <div class="page-content">
-                          <div class="hero">
-                              <img class="hero-image" src="hero-dag.jpg" />
-                          </div>
-                          <div class="content-block">
-                              <div class="dataBlock">test 2</div>
-                              <div class="dataBlock">test</div>
-                              <div class="dataBlock">test</div>
-                              <div class="dataBlock">test</div>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-
-              <div id="page2">
-                <div class="pages navbar-through toolbar-through">
-                    <!-- Page, "data-page" contains page name -->
-                    <div data-page="page2" class="page">
-                        <!-- Scrollable page content -->
-                        <div class="page-content">
-                            <div class="hero">
-                              This is page2
+            <div class="pages">
+                <!-- Page, "data-page" contains page name -->
+                <div data-page="index" class="page">
+                    <!-- Scrollable page content -->
+                    <div class="`contentWrapper">
+                        <div id="hero">
+                            <img class="hero-image" src="hero-dag.jpg" /> 
+                        </div>
+                        <div id="menuBar">
+                            <a class="menuItem" href="#"><img src="#" /><span>Dag</span></a>
+                            <a class="menuItem" href="#"><img src="#" /><span>Week</span></a>
+                            <a class="menuItem" href="#"><img src="#" /><span>Wekker</span></a>
+                            <a class="menuItem" href="#"><img src="#" /><span>Profiel</span></a>
+                        </div>
+                        <div id="sleepDisplay">
+                            
+                        </div>
+                        <div id="sleepData">
+                            <div class="dataBlock">
+                                <img class="dataIcon" src="#" />
+                                <div class="dataText">
+                                    <span class="dataTitle">Gedraaid</span>
+                                    <span class="dataTitle">12<strong>x</strong></span>
+                                </div>
                             </div>
-                            <div class="content-block">
-
+                            <div class="dataBlock">
+                                <img class="dataIcon" src="#" />
+                                <div class="dataText">
+                                    <span class="dataTitle">Gedraaid</span>
+                                    <span class="dataTitle">12<strong>x</strong></span>
+                                </div>
                             </div>
-                       </div>
+                            <div class="dataBlock">
+                                <img class="dataIcon" src="#" />
+                                <div class="dataText">
+                                    <span class="dataTitle">Gedraaid</span>
+                                    <span class="dataTitle">12<strong>x</strong></span>
+                                </div>
+                            </div>
+                            <div class="dataBlock">
+                                <img class="dataIcon" src="#" />
+                                <div class="dataText">
+                                    <span class="dataTitle">Gedraaid</span>
+                                    <span class="dataTitle">12<strong>x</strong></span>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-              </div>
-
-              <div id="page3">
-                <div class="pages navbar-through toolbar-through">
-                    <!-- Page, "data-page" contains page name -->
-                    <div data-page="page3" class="page">
-                        <!-- Scrollable page content -->
-                        <div class="page-content">
-                            <div class="hero">
-                              This is page3
-                            </div>
-                            <div class="content-block">
-
-                            </div>
-                       </div>
-                    </div>
-                </div>
-              </div>
-
-              <div id="page4">
-                <div class="pages navbar-through toolbar-through">
-                    <!-- Page, "data-page" contains page name -->
-                    <div data-page="page4" class="page">
-                        <!-- Scrollable page content -->
-                        <div class="page-content">
-                            <div class="hero">
-                              This is page4
-                            </div>
-                            <div class="content-block">
-
-                            </div>
-                       </div>
-                    </div>
-                </div>
-              </div>
-
             </div>
         </div>
     </div>
