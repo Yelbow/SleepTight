@@ -26,7 +26,7 @@ function renderPages(){
 }
 
 function disableAllPages(){
-  for (i = 0; i < pages.length; i++){
+  for (i = 0; i < pages.length - 1; i++){
     console.log("Disabled page:", pages[i]);
     document.getElementById(pages[i]).style.display = 'none';
   }
