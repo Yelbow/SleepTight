@@ -34,6 +34,11 @@ function disableAllPages(){
 
 $(document).ready( () => {
     console.log("Document ready");
+    document.getElementById("page1Btn").addEventListener("click", setPage("page1"));
+    document.getElementById("page2Btn").addEventListener("click", setPage("page2"));
+    document.getElementById("page3Btn").addEventListener("click", setPage("page3"));
+    document.getElementById("page4Btn").addEventListener("click", setPage("page4"));
+
     disableAllPages();
     renderPages();
 });
