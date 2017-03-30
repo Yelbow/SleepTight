@@ -15,6 +15,9 @@
         },
         "cordova-plugin-statusbar": {
             "PACKAGE_NAME": "com.phonegap.sleeptight"
+        },
+        "cordova-plugin-inappbrowser": {
+            "PACKAGE_NAME": "com.phonegap.sleeptight"
         }
     },
     "dependent_plugins": {},
@@ -26,11 +29,27 @@
             "clobbers": [
                 "window.StatusBar"
             ]
+        },
+        {
+            "file": "plugins/cordova-plugin-inappbrowser/www/inappbrowser.js",
+            "id": "cordova-plugin-inappbrowser.inappbrowser",
+            "pluginId": "cordova-plugin-inappbrowser",
+            "clobbers": [
+                "cordova.InAppBrowser.open",
+                "window.open"
+            ]
+        },
+        {
+            "file": "plugins/cordova-plugin-inappbrowser/src/browser/InAppBrowserProxy.js",
+            "id": "cordova-plugin-inappbrowser.InAppBrowserProxy",
+            "pluginId": "cordova-plugin-inappbrowser",
+            "runs": true
         }
     ],
     "plugin_metadata": {
         "cordova-plugin-whitelist": "1.2.2",
         "cordova-plugin-console": "1.0.6",
-        "cordova-plugin-statusbar": "1.0.1"
+        "cordova-plugin-statusbar": "1.0.1",
+        "cordova-plugin-inappbrowser": "1.7.0"
     }
 }
