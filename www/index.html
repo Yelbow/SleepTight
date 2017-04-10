@@ -84,22 +84,28 @@
             </div> -->
             <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
             <div id="menuBar">
-                <a id="page1Btn" class="menuItem" href="#"><img src="#" /><span>Dag</span></a>
-                <a id="page2Btn" class="menuItem" href="#"><img src="#" /><span>Week</span></a>
-                <a id="page3Btn" class="menuItem" href="#"><img src="#" /><span>Wekker</span></a>
-                <a id="page4Btn" class="menuItem" href="#"><img src="#" /><span>Profiel</span></a>
+                <a id="page1Btn" class="menuItem active" href="#"><img src="night.png" /><span>Dag</span></a>
+                <a id="page2Btn" class="menuItem" href="#"><img src="week.png" /><span>Week</span></a>
+                <a id="page3Btn" class="menuItem" href="#"><img src="clock.png" /><span>Wekker</span></a>
+                <a id="page4Btn" class="menuItem" href="#"><img src="profile.png" /><span>Profiel</span></a>
             </div>
 
             <div class="pages">
                 <!-- Page, "data-page" contains page name -->
                 <div id="page1" data-page="index" class="page">
                     <!-- Scrollable page content -->
-                    <div class="`contentWrapper">
+                    <div class="contentWrapper">
                         <div id="hero">
                             <img class="hero-image" src="hero-dag.jpg" />
+                            <div class="hero-data">
+                              <a class="dayBtn prevDay" href="#"><</a>
+                              <span class="dayDate"><strong>dinsdag</strong><br>25 April</span>
+                                <a class="dayBtn nextDay" href="#">></a>
+                              <img class="hero-bed" src="#" />
+                            </div>
                         </div>
                         <div id="sleepDisplay">
-
+                            <img class="graph" src="graph.jpg" />
                         </div>
                         <div id="sleepData">
                             <div class="dataBlock">

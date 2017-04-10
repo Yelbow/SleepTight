@@ -18,6 +18,7 @@
 	height: 40px;
 	display: flex;
 	justify-content: center;
+  background: #384770;
 }
 
 	#logo {
@@ -33,6 +34,7 @@
 	#hero {
 		height: 150px;
 		width: 100%;
+    position: relative;
 	}
 
 		.hero-image {
@@ -41,11 +43,44 @@
 			object-fit: cover;
 		}
 
+    .hero-data {
+      position: absolute;
+      top: 20px;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+      width: 150px;
+      display: flex;
+      justify-content: space-between;
+      color: white;
+    }
+
+      .hero-data a {
+        color: white;
+      }
+
+      .hero-data strong {
+        font-size: 1.1em;
+      }
+
+    .hero-bed {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+      height: 60px;
+      width: 60px;
+      border-radius: 50%;
+      background: white;
+    }
+
 	#menuBar {
 		display: flex;
 		justify-content: space-between;
-		background: blue;
-		height: 60px;
+		background: #6a6682;
 		font-weight: bold;
 	}
 
@@ -53,16 +88,31 @@
 			display: flex;
 			flex-direction: column;
 			justify-content: space-between;
-			padding: 5px 0;
+      align-items: center;
+			padding: 8px 0;
 			text-align: center;
 			width: 100%;
 			color: white;
 		}
 
+    .menuItem.active {
+      background: #3c3759;
+    }
+
+      .menuItem img {
+        width: 20px;
+        height: auto;
+      }
+
 	#sleepDisplay {
 		height: 200px;
-		background: red;
 	}
+
+    .graph {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
 
 	#sleepData {
 		display: flex;
@@ -82,7 +132,7 @@
 		}
 
 			.dataIcon {
-				background: grey;
+  		  background: #6a6682;
 				height: 50px;
 				width: 50px;
 				border-radius: 50%;
@@ -102,6 +152,7 @@
 
         .view {
           overflow: auto;
+          overflow-y: scroll;
           display: flex;
           flex-direction: column;
         }
@@ -112,6 +163,7 @@
         width: 100%;
         overflow: scroll;
         flex: 2;
+        background: white;
       }
 
         .page {

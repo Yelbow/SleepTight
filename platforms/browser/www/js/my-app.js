@@ -16,21 +16,29 @@ var pages = ["page1", "page2", "page3", "page4"];
 
 function setPage1(){
   currentpage = "page1";
+  $(".menuItem").removeClass("active");
+  $("#page1Btn").addClass("active");
   renderPages();
 }
 
 function setPage2(){
   currentpage = "page2";
+  $(".menuItem").removeClass("active");
+  $("#page2Btn").addClass("active");
   renderPages();
 }
 
 function setPage3(){
   currentpage = "page3";
+  $(".menuItem").removeClass("active");
+  $("#page3Btn").addClass("active");
   renderPages();
 }
 
 function setPage4(){
   currentpage = "page4";
+  $(".menuItem").removeClass("active");
+  $("#page4Btn").addClass("active");
   renderPages();
 }
 
