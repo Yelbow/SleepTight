@@ -14,21 +14,66 @@ var mainView = myApp.addView('.view-main', {
 var currentpage = "page1";
 var pages = ["page1", "page2", "page3", "page4"];
 
-function setPage(page){
-  currentpage = page;
-  render();
+function setPage1(){
+  currentpage = "page1";
+  renderPages();
+}
+
+function setPage2(){
+  currentpage = "page2";
+  renderPages();
+}
+
+function setPage3(){
+  currentpage = "page3";
+  renderPages();
+}
+
+function setPage4(){
+  currentpage = "page4";
+  renderPages();
 }
 
 function renderPages(){
-  disableAll();
-  document.getElementById(currentpage).style.display = 'flex';
-  console.log(currentpage + " rendered");
+  disableAllPages();
+  if (currentpage !== '' || null){
+    document.getElementById(currentpage).style.display = 'block';
+    console.log(currentpage + " rendered");
+  } else {
+    console.log("Current page is empty");
+  }
+  navEventListeners();
+}
+
+function navEventListeners(){
+
+  $("#page1Btn").on("click", function(e) {
+    setPage1();
+    e.preventDefault();
+  });
+  $("#page2Btn").on("click", function(e) {
+    setPage2();
+    e.preventDefault();
+  });
+  $("#page3Btn").on("click", function(e) {
+    setPage3();
+    e.preventDefault();
+  });
+  $("#page4Btn").on("click", function(e) {
+    setPage4();
+    e.preventDefault();
+  });
+
 }
 
 function disableAllPages(){
   for (i = 0; i < pages.length; i++){
-    console.log("Disabled page:", pages[i]);
-    document.getElementById(pages[i]).style.display = 'none';
+    if(pages[i] == '' || null){
+      console.log("Page not found: " + pages[i]);
+    } else {
+      document.getElementById(pages[i]).style.display = 'none';
+      console.log("Disabled page:", pages[i]);
+    }
   }
 }
 

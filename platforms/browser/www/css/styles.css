@@ -14,43 +14,90 @@
     background: #000000;
 }
 
+#header {
+	height: 40px;
+	display: flex;
+	justify-content: center;
+}
+
+	#logo {
+		background: yellow;
+		line-height: 40px;
+	}
+
 .page-content {
+	display: flex;
+	flex-direction: column;
 }
 
-.hero {
-	background: grey;
-	height: 150px;
-	width: 100%;
-}
-
-	.hero-image {
+	#hero {
 		height: 150px;
 		width: 100%;
-		object-fit: cover;
 	}
 
-.content-block {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-around;
-}
+		.hero-image {
+			height: 150px;
+			width: 100%;
+			object-fit: cover;
+		}
 
-	.dataBlock {
-		background: white;
-		border-radius: 4px;
-		width: 30%;
-		height: 50px;
-		line-height: 50px;
-		text-align: center;
-		margin: 20px;
+	#menuBar {
+		display: flex;
+		justify-content: space-between;
+		background: blue;
+		height: 60px;
+		font-weight: bold;
 	}
-.tabbar {
+
+		.menuItem {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			padding: 5px 0;
+			text-align: center;
+			width: 100%;
+			color: white;
+		}
+
+	#sleepDisplay {
+		height: 200px;
+		background: red;
+	}
+
+	#sleepData {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		flex:2;
+	}
+
+		.dataBlock {
+			display: flex;
+			justify-content: space-between;
+			width: 50%;
+			height: 50px;
+			padding: 0 20px;
+			margin: 20px 0;
+			box-sizing: border-box;
+		}
+
+			.dataIcon {
+				background: grey;
+				height: 50px;
+				width: 50px;
+				border-radius: 50%;
+				margin-right: 10px;
+			}
+
+			.dataText {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				flex: 2;
+			}
+
+
+/*.tabbar {
 	position: absolute;
 	top:15;
-}
-
-.toolbar {
-
-	position: fixed;
-
-}
+}*/
