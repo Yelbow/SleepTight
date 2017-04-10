@@ -96,7 +96,28 @@
 				flex: 2;
 			}
 
+      .views {
+        overflow: auto;
+      }
 
+        .view {
+          overflow: auto;
+          display: flex;
+          flex-direction: column;
+        }
+
+      .pages {
+        position: static;
+        height: 100%;
+        width: 100%;
+        overflow: scroll;
+        flex: 2;
+      }
+
+        .page {
+          position: static;
+          background: none;
+        }
 /*.tabbar {
 	position: absolute;
 	top:15;
