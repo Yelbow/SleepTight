@@ -9,6 +9,11 @@
 
    See https://github.com/apache/cordova-plugin-statusbar
 */
+* {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1em;
+}
+
 
 .statusbar-overlay {
     background: #000000;
@@ -26,6 +31,34 @@
     width: 100px;
     height: auto;
 	}
+
+#menuBar {
+  display: flex;
+  justify-content: space-between;
+  background: #6a6682;
+}
+
+  .menuItem {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 0;
+    text-align: center;
+    width: 100%;
+    color: white;
+    font-size: .7em;
+  }
+
+  .menuItem.active {
+    background: #3c3759;
+  }
+
+    .menuItem img {
+      width: 15px;
+      height: auto;
+      padding-bottom: 2px;
+    }
 
 .page-content {
 	display: flex;
@@ -46,64 +79,50 @@
 
     .hero-data {
       position: absolute;
-      top: 20px;
+      top: 0;
       left: 0;
       bottom: 0;
       right: 0;
       margin: auto;
-      width: 150px;
       display: flex;
       justify-content: space-between;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
       color: white;
     }
 
       .hero-data a {
         color: white;
+        padding: 5px;
       }
 
       .hero-data strong {
         font-size: 1.1em;
       }
 
+      .hero-date {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 150px;
+      }
+
+        .dayDate {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .dateArrow {
+          width: 20px;
+          height: auto;
+        }
+
     .hero-bed {
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      margin: auto;
       height: 60px;
       width: 60px;
-      border-radius: 50%;
-      background: white;
     }
-
-	#menuBar {
-		display: flex;
-		justify-content: space-between;
-		background: #6a6682;
-		font-weight: bold;
-	}
-
-		.menuItem {
-			display: flex;
-			flex-direction: column;
-			justify-content: space-between;
-      align-items: center;
-			padding: 8px 0;
-			text-align: center;
-			width: 100%;
-			color: white;
-		}
-
-    .menuItem.active {
-      background: #3c3759;
-    }
-
-      .menuItem img {
-        width: 20px;
-        height: auto;
-      }
 
 	#sleepDisplay {
 		height: 200px;
@@ -120,15 +139,16 @@
 		flex-wrap: wrap;
 		justify-content: space-around;
 		flex:2;
+    padding: 20px 0;
 	}
 
 		.dataBlock {
 			display: flex;
-			justify-content: space-between;
+			justify-content: center;
+      align-items: center;
 			width: 50%;
-			height: 50px;
-			padding: 0 20px;
-			margin: 20px 0;
+      min-width: 175px;
+			padding: 10px 20px;
 			box-sizing: border-box;
 		}
 
@@ -142,16 +162,16 @@
         box-sizing: border-box;
       }
 
-  			.dataIcon {
+        .dataIcon {
           width: 30px;
-          height: auto;
-  			}
+          height: 30px;
+        }
 
 			.dataText {
 				display: flex;
 				flex-direction: column;
 				justify-content: space-between;
-				flex: 2;
+        flex: 2;
 			}
 
       .views {
