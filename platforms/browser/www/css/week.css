@@ -1,0 +1,177 @@
+/*
+   statusbar-overlay sets the background color for the overlay. Black text is the default when the statusbar plugin is not added. When the
+   statusbar plugin is added, it also adds default setting to make the content white via:
+
+       <preference name="StatusBarStyle" value="lightcontent"/>
+
+   Setting the background color to black will allow the default light content (white text/icons) to show on it. The statusbar plugin is included
+   in the config.xml file and will be added by the CLI when you build locally.
+
+   See https://github.com/apache/cordova-plugin-statusbar
+*/
+
+.statusbar-overlay {
+    background: #000000;
+}
+
+#header {
+	height: 40px;
+	display: flex;
+	justify-content: center;
+  align-items: center;
+  background: #384770;
+}
+
+	#logo {
+    width: 100px;
+    height: auto;
+	}
+
+.page-content {
+	display: flex;
+	flex-direction: column;
+}
+
+	#hero {
+		height: 150px;
+		width: 100%;
+    position: relative;
+	}
+
+		.hero-image {
+			height: 150px;
+			width: 100%;
+			object-fit: cover;
+		}
+
+    .hero-data {
+      position: absolute;
+      top: 20px;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+      width: 150px;
+      display: flex;
+      justify-content: space-between;
+      color: white;
+    }
+
+      .hero-data a {
+        color: white;
+      }
+
+      .hero-data strong {
+        font-size: 1.1em;
+      }
+
+    .hero-bed {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      margin: auto;
+      height: 60px;
+      width: 60px;
+      border-radius: 50%;
+      background: white;
+    }
+
+	#menuBar {
+		display: flex;
+		justify-content: space-between;
+		background: #6a6682;
+		font-weight: bold;
+	}
+
+		.menuItem {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+      align-items: center;
+			padding: 8px 0;
+			text-align: center;
+			width: 100%;
+			color: white;
+		}
+
+    .menuItem.active {
+      background: #3c3759;
+    }
+
+      .menuItem img {
+        width: 20px;
+        height: auto;
+      }
+
+	#sleepDisplay {
+		height: 200px;
+	}
+
+    .graph {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+    }
+
+	#sleepData {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		flex:2;
+	}
+
+		.dataBlock {
+			display: flex;
+			justify-content: space-between;
+			width: 50%;
+			height: 50px;
+			padding: 0 20px;
+			margin: 20px 0;
+			box-sizing: border-box;
+		}
+
+			.dataIcon {
+  		  background: #6a6682;
+				height: 50px;
+				width: 50px;
+				border-radius: 50%;
+				margin-right: 10px;
+			}
+
+			.dataText {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				flex: 2;
+			}
+
+      .views {
+        overflow: auto;
+      }
+
+        .view {
+          overflow: auto;
+          overflow-y: scroll;
+          display: flex;
+          flex-direction: column;
+        }
+
+      .pages {
+        position: static;
+        height: 100%;
+        width: 100%;
+        overflow: scroll;
+        flex: 2;
+        background: white;
+      }
+
+        .page {
+          position: static;
+          background: none;
+        }
+/*.tabbar {
+	position: absolute;
+	top:15;
+}*/
