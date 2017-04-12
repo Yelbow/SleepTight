@@ -27,6 +27,8 @@
     <!-- This template defaults to the iOS CSS theme. To support both iOS and material design themes, see the Framework7 Tutorial at the link below:
         http://www.idangero.us/framework7/tutorials/maintain-both-ios-and-material-themes-in-single-app.html
      -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.min.js">
+    <script src="js/mychart.js"> </script>
 
     <link rel="stylesheet" href="lib/framework7/css/framework7.ios.min.css">
     <link rel="stylesheet" href="lib/framework7/css/framework7.ios.colors.min.css">
@@ -105,7 +107,8 @@
                             </div>
                         </div>
                         <div id="sleepDisplay">
-                            <img class="graph" src="graph.jpg" />
+                            <!-- <img class="graph" src="graph.jpg" /> -->
+                            <canvas id="myChart" width="400" height="400"></canvas>
                         </div>
                         <div id="sleepData">
                             <div class="dataBlock">
