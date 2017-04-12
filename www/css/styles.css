@@ -111,7 +111,7 @@
 
     .graph {
       width: 100%;
-      height: auto;
+      height: 200px;
       object-fit: cover;
     }
 
@@ -132,13 +132,20 @@
 			box-sizing: border-box;
 		}
 
-			.dataIcon {
-  		  background: #6a6682;
-				height: 50px;
-				width: 50px;
-				border-radius: 50%;
-				margin-right: 10px;
-			}
+      .dataImage {
+        background: #6a6682;
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        margin-right: 10px;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+
+  			.dataIcon {
+          width: 30px;
+          height: auto;
+  			}
 
 			.dataText {
 				display: flex;
