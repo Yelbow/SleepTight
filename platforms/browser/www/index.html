@@ -21,6 +21,7 @@
     <meta name="msapplication-tap-highlight" content="no">
     <meta http-equiv="Content-Security-Policy" content="img-src 'self' data:">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 
     <!-- Your app title -->
@@ -29,8 +30,8 @@
     <!-- This template defaults to the iOS CSS theme. To support both iOS and material design themes, see the Framework7 Tutorial at the link below:
         http://www.idangero.us/framework7/tutorials/maintain-both-ios-and-material-themes-in-single-app.html
      -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.min.js">
-    <script src="js/mychart.js"> </script>
+
+    <script type="text/javascript" src="/js/chart.js"> </script>
 
     <link rel="stylesheet" href="lib/framework7/css/framework7.ios.min.css">
     <link rel="stylesheet" href="lib/framework7/css/framework7.ios.colors.min.css">
@@ -99,23 +100,65 @@
                 <div id="page1" data-page="index" class="page">
                     <!-- Scrollable page content -->
                     <div class="contentWrapper">
+
                         <div id="hero">
                             <img class="hero-image" src="img/hero-dag.jpg" />
-                            <div class="hero-data">
-                              <div class="hero-date">
-                                <a class="dayBtn prevDay" href="#"><img class="dateArrow" src="img/arrowLeft.png" /></a>
-                                <div class="dayDate">
-                                  <span class="day"><strong>Dinsdag</strong></span>
-                                  <span class="date">25 April</span>
+
+                            <div class="hero-data swiper-container">
+                              <div class="hero-date swiper-wrapper">
+
+                                <!-- slide 1 . maandag -->
+                                <div class="swiper-slide">
+                                  <div class="day-swiper">
+                                    <a class="dayBtn prevDay" href="#"><img class="dateArrow" src="img/arrowLeft.png" /></a>
+                                    <div class="dayDate">
+                                      <span class="day"><strong>maandag</strong></span>
+                                      <span class="date">25 April</span>
+                                    </div>
+                                    <a class="dayBtn nextDay" href="#"><img class="dateArrow" src="img/arrowRight.png" /></a>
+                                  </div>
                                 </div>
-                                  <a class="dayBtn nextDay" href="#"><img class="dateArrow" src="img/arrowRight.png" /></a>
+
+                                <!-- slide 2 . dinsdag -->
+                                <div class="swiper-slide">
+                                  <div class="day-swiper">
+                                    <a class="dayBtn prevDay" href="#"><img class="dateArrow" src="img/arrowLeft.png" /></a>
+                                    <div class="dayDate">
+                                      <span class="day"><strong>dinsdag</strong></span>
+                                      <span class="date">26 April</span>
+                                    </div>
+                                    <a class="dayBtn nextDay" href="#"><img class="dateArrow" src="img/arrowRight.png" /></a>
+                                  </div>
                                 </div>
+
+                                <!-- slide 3 . woensdag -->
+                                <div class="swiper-slide">
+                                  <div class="day-swiper">
+                                    <a class="dayBtn prevDay" href="#"><img class="dateArrow" src="img/arrowLeft.png" /></a>
+                                    <div class="dayDate">
+                                      <span class="day"><strong>woensdag</strong></span>
+                                      <span class="date">27 April</span>
+                                    </div>
+                                    <a class="dayBtn nextDay" href="#"><img class="dateArrow" src="img/arrowRight.png" /></a>
+                                  </div>
+                                </div>
+
+                              </div>
                               <img class="hero-bed" src="img/bedicoon.png" />
                             </div>
+
+                            <script>
+                              var mySwiper = app.swiper('.swiper-container', {
+                                  speed: 400,
+                                  spaceBetween: 100
+                              });  
+                            </script>
+
                         </div>
+
                         <div id="sleepDisplay">
-                            <img class="graph" src="img/graph.jpg" />
-                            <!-- <canvas id="myChart" width="400" height="400"></canvas> -->
+                            <!-- <img class="graph" src="img/graph.jpg" /> -->
+                            <canvas id="myChart" width="400" height="400"></canvas>
                         </div>
                         <div id="sleepData">
                             <div class="dataBlock">
@@ -187,6 +230,52 @@
     <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
     <script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
     <script type="text/javascript" src="js/my-app.js"></script>
+
+    <canvas id="myChart" width="400" height="400"></canvas>
+
+    <script>
+    // grafiek javascript
+          var ctx = document.getElementById("myChart").getContext("2d");
+          var myChart = new Chart(ctx, {
+          type: 'bar',
+          data: {
+              labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+              datasets: [{
+                  label: '# of Votes',
+                  data: [12, 19, 3, 5, 2, 3],
+                  backgroundColor: [
+                      'rgba(255, 99, 132, 0.2)',
+                      'rgba(54, 162, 235, 0.2)',
+                      'rgba(255, 206, 86, 0.2)',
+                      'rgba(75, 192, 192, 0.2)',
+                      'rgba(153, 102, 255, 0.2)',
+                      'rgba(255, 159, 64, 0.2)'
+                  ],
+                  borderColor: [
+                      'rgba(255,99,132,1)',
+                      'rgba(54, 162, 235, 1)',
+                      'rgba(255, 206, 86, 1)',
+                      'rgba(75, 192, 192, 1)',
+                      'rgba(153, 102, 255, 1)',
+                      'rgba(255, 159, 64, 1)'
+                  ],
+                  borderWidth: 1
+              }]
+          },
+          options: {
+              scales: {
+                  yAxes: [{
+                      ticks: {
+                          beginAtZero:true
+                      }
+                  }]
+              }
+          }
+      });
+
+    </script>
+
+
 </body>
 
 </html>

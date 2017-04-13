@@ -88,7 +88,7 @@
       justify-content: space-between;
       flex-direction: column;
       align-items: center;
-      padding: 20px;
+      padding: 20px 0;
       color: white;
     }
 
@@ -102,11 +102,15 @@
       }
 
       .hero-date {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 150px;
+        margin: 0 auto;
       }
+
+        .day-swiper{
+          display: flex;
+          justify-content: space-between;
+          width: 150px;
+          margin: 0 auto;
+        }
 
         .dayDate {
           display: flex;
@@ -132,6 +136,11 @@
       width: 100%;
       height: 200px;
       object-fit: cover;
+    }
+
+    #myChart{
+      width: 100%;
+      height: 200px;
     }
 
 	#sleepData {
