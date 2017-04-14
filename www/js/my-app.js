@@ -98,19 +98,6 @@ $$(document).on('deviceready', function() {
     renderPages();
 });
 
-
-// alles voor page1
-
-// swiper
-myApp.onPageInit('page1', function (page) {
-    var mySwiper = myApp.swiper('.swiper-container', {
-    
-    });
-
-})
-
-
-
 // Now we need to run the code that will be executed only for About page.
 
 // Option 1. Using page callback for page (for "about" page in this case) (recommended way):
