@@ -139,8 +139,7 @@
     }
 
     #myChart{
-      width: 100% !important;
-      height: 200px !important;
+      max-height: 100%;
     }
 
 	#sleepData {

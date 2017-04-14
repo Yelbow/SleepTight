@@ -10,15 +10,50 @@ $(document).ready(function () {
 
   })
 
+  var dagen = ["maandag", "dinsdag", "woensdag"];
+  var slide = 0;
+
+  mySwiper.on('slideNextStart', function () {
+    slide++;
+    dag = document.getElementsByClassName("day-txt");     // vind alles met class day stop in array
+    txt = document.createTextNode(dagen[slide]);  // stop de goede dag in een text variabele
+
+    for(var i = 0; i < dag.length; i++){              // haal de array leeg tot een day
+      dag[i].innerText = txt.textContent;             // Change the content
+    }
+
+    console.log('changed to next slide: slide ' + slide);
+  });
+
+  mySwiper.on('slidePrevStart', function () {
+    slide--;
+    dag = document.getElementsByClassName("day-txt");
+    txt = document.createTextNode(dagen[slide]);
+
+    for(var i = 0; i < dag.length; i++){
+      dag[i].innerText = txt.textContent;
+    }
+
+    console.log('changed to prev slide: slide ' + slide);
+  });
+
+
+
+
+
   // Chart.js
+  Chart.defaults.global.responsive = true;
+
   var ctx = document.getElementById("myChart");
     var myChart = new Chart(ctx, {
+        responsive: true,
+        maintainAspectRatio: false,
         type: 'line',
         data: {
             labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
             datasets: [{
                 label: '# of Votes',
-                data: [12, 19, 3, 5, 2, 3],
+                data: [1, 4, 3, 5, 2, 3],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
