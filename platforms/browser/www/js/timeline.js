@@ -19,7 +19,7 @@ $(".timelinePlay").click(function() {
       $(".timelineOverlay").width(t);
       w += 0.001;
     }
-  }, 5);
+  }, 10);
   $(".timelinePause").click(function() {
     clearInterval(i);
     $(".timelinePlay").show();
