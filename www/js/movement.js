@@ -2,40 +2,76 @@
 $(document).ready(function () {
 
   // Hero-swiper
-  var mySwiper = new Swiper ('.swiper-container', {
-    // Optional parameters
-    direction: 'horizontal',
-    nextButton: '.next-day',
-    prevButton: '.prev-day'
 
-  })
+  var dagen = ["dinsdag1", "woensdag2", "donderdag3", "vrijdag4","zaterdag5", "zondag6", "maandag7"];
+  var slide = dagen.length-1;
 
-  var dagen = ["maandag", "dinsdag", "woensdag"];
-  var slide = 0;
 
-  mySwiper.on('slideNextStart', function () {
-    slide++;
-    dag = document.getElementsByClassName("day-txt");     // vind alles met class day stop in array
-    txt = document.createTextNode(dagen[slide]);  // stop de goede dag in een text variabele
-
-    for(var i = 0; i < dag.length; i++){              // haal de array leeg tot een day
-      dag[i].innerText = txt.textContent;             // Change the content
-    }
-
-    console.log('changed to next slide: slide ' + slide);
-  });
-
-  mySwiper.on('slidePrevStart', function () {
-    slide--;
+  function currentday(){
     dag = document.getElementsByClassName("day-txt");
     txt = document.createTextNode(dagen[slide]);
 
     for(var i = 0; i < dag.length; i++){
       dag[i].innerText = txt.textContent;
     }
+  }
 
-    console.log('changed to prev slide: slide ' + slide);
-  });
+
+
+  var mySwiper = new Swiper ('.swiper-container', {
+    // Optional parameters
+    //slidesPerView: 'auto',
+    // loop: true,
+    // loopedSlides: 2,
+    direction: 'horizontal',
+    nextButton: '.next-day',
+    prevButton: '.prev-day',
+    slideTo: 3,
+    onInit: function(swiper){
+      currentday();
+    },
+    onSlideChangeEnd: function(swiper){
+      slideNr = mySwiper.activeIndex;
+      console.log('slideNr: ' + slideNr);
+    },
+    onSlideNextEnd: function(swiper){
+      if (slideNr === 1){
+        mySwiper.slideTo(0, 1);
+      }
+    }
+
+    // onSlideNextStart: function(swiper){
+    //   slide++;
+    //   currentday();
+    //   console.log('changed to next slide: slide ' + slide);
+    // },
+    // onSlidePrevStart: function(swiper){
+    //   slide--;
+    //   currentday();
+    //   console.log('changed to next slide: slide ' + slide);
+    // }
+  })
+
+
+  // var realSlide = mySwiper.realIndex;
+  // console.log('huidige dag: ' + slide + 'slide' + realSlide );
+  //
+  // mySwiper.slideTo(3, 1);
+  //
+  // mySwiper.on('slideNextStart', function(){
+  //   slide++;
+  //   currentday();
+  //   console.log('changed to next slide: slide ' + slide);
+  // })
+  //
+  // mySwiper.on('slidePrevStart', function(){
+  //   slide--;
+  //   currentday();
+  //   console.log('changed to prev slide: slide ' + slide);
+  // })
+
+
+
 
 
 
