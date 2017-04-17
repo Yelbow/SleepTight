@@ -154,7 +154,24 @@
                         </div>
 
                         <div id="sleepDisplay">
-                            <canvas id="myChart" heigth="200px !important"></canvas>
+                            <div class="chart">
+                              <div class="chartLabels">
+                                <img class="dataIcon" src="img/wakker.png" />
+                                <img class="dataIcon" src="img/veer.png" />
+                                <img class="dataIcon" src="img/roos.png" />
+                              </div>
+                              <canvas id="myChart" heigth="200px !important"></canvas>
+                            </div>
+                            <div class="timeline">
+                              <div class="playBtn">
+                                <img class="timelineBtn timelinePlay" src="img/play.png" />
+                                <img class="timelineBtn timelinePause" src="img/pause.png" />
+                              </div>
+                              <div class="timeBar">
+
+                              </div>
+                            </div>
+                            <div class="timelineOverlay"></div>
                         </div>
                         <div id="sleepData">
                             <div class="dataBlock">
@@ -233,6 +250,7 @@
     <!-- alle eigen javascript -->
     <script type="text/javascript" src="js/my-app.js"></script>
     <script type="text/javascript" src="js/movement.js"></script>
+    <script type="text/javascript" src="js/timeline.js"></script>
 
 </body>
 
