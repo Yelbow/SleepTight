@@ -141,7 +141,7 @@
 
     .chart {
       display: flex;
-      height: 100%;
+      height: 200px;
       max-height: 100%;
       overflow: hidden;
     }
@@ -167,6 +167,7 @@
         /* height: 200px !important; */
         padding-top: 10px;
         min-width: 100px;
+        box-sizing: border-box;
 
         background-color: #f2f7ff;
         flex: 2;
