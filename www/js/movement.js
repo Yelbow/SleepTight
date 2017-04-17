@@ -2,17 +2,30 @@
 $(document).ready(function () {
 
   // Hero-swiper
+  var dagen = [["dinsdag1", "11 april"], ["woensdag2", "12 april"], ["donderdag3", "13 april"], ["vrijdag4", "14 april"], ["zaterdag5", "15 april"], ["zondag", "16 april"], ["maandag7", "17 april"]];
 
-  var dagen = ["dinsdag1", "woensdag2", "donderdag3", "vrijdag4","zaterdag5", "zondag6", "maandag7"];
+  //var dagen = ["dinsdag1", "woensdag2", "donderdag3", "vrijdag4","zaterdag5", "zondag6", "maandag7"];
   var slide = dagen.length-1;
+
+  // for(var i = 0; i < slide; i++){
+  //   $('.swiper-slide').clone().appendTo('.swiper-wrapper');
+  // }
+
 
   function currentday(){
     dag = document.getElementsByClassName("day-txt");
-    txt = document.createTextNode(dagen[slide]);
+    txt = document.createTextNode(dagen[slide][0]);
+
+    dagDatum = document.getElementsByClassName("date");
+    txtDatum = document.createTextNode(dagen[slide][1]);
 
     for(var i = 0; i < dag.length; i++){
       dag[i].innerText = txt.textContent;
+      dagDatum[i].innerText = txtDatum.textContent;
     }
+
+
+
   }
 
   var mySwiper = new Swiper ('.swiper-container', {
