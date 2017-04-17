@@ -77,6 +77,12 @@
       border-radius: 50%;
     }
 
+    .hero-bed {
+      top: 30px;
+      height: 60px;
+      width: 60px;
+    }
+
 	#menuBar {
 		display: flex;
 		justify-content: space-between;
