@@ -6,7 +6,6 @@ $(document).ready(function () {
   var dagen = ["dinsdag1", "woensdag2", "donderdag3", "vrijdag4","zaterdag5", "zondag6", "maandag7"];
   var slide = dagen.length-1;
 
-
   function currentday(){
     dag = document.getElementsByClassName("day-txt");
     txt = document.createTextNode(dagen[slide]);
@@ -16,8 +15,6 @@ $(document).ready(function () {
     }
   }
 
-
-
   var mySwiper = new Swiper ('.swiper-container', {
     // Optional parameters
     //slidesPerView: 'auto',
@@ -26,20 +23,13 @@ $(document).ready(function () {
     direction: 'horizontal',
     nextButton: '.next-day',
     prevButton: '.prev-day',
-    slideTo: 3,
     onInit: function(swiper){
       currentday();
-    },
-    onSlideChangeEnd: function(swiper){
-      slideNr = mySwiper.activeIndex;
-      console.log('slideNr: ' + slideNr);
-    },
-    onSlideNextEnd: function(swiper){
-      if (slideNr === 1){
-        mySwiper.slideTo(0, 1);
-      }
     }
-
+    // onSlideChangeEnd: function(swiper){
+    //   slideNr = mySwiper.activeIndex;
+    //   console.log('slideNr: ' + slideNr);
+    // },
     // onSlideNextStart: function(swiper){
     //   slide++;
     //   currentday();
@@ -48,7 +38,7 @@ $(document).ready(function () {
     // onSlidePrevStart: function(swiper){
     //   slide--;
     //   currentday();
-    //   console.log('changed to next slide: slide ' + slide);
+    //   console.log('changed to prev slide: slide ' + slide);
     // }
   })
 
@@ -56,26 +46,19 @@ $(document).ready(function () {
   // var realSlide = mySwiper.realIndex;
   // console.log('huidige dag: ' + slide + 'slide' + realSlide );
   //
-  // mySwiper.slideTo(3, 1);
+  mySwiper.slideTo(3, 1);
   //
-  // mySwiper.on('slideNextStart', function(){
-  //   slide++;
-  //   currentday();
-  //   console.log('changed to next slide: slide ' + slide);
-  // })
-  //
-  // mySwiper.on('slidePrevStart', function(){
-  //   slide--;
-  //   currentday();
-  //   console.log('changed to prev slide: slide ' + slide);
-  // })
+  mySwiper.on('slideNextStart', function(){
+    slide++;
+    currentday();
+    console.log('changed to next slide: slide ' + slide);
+  })
 
-
-
-
-
-
-
+  mySwiper.on('slidePrevStart', function(){
+    slide--;
+    currentday();
+    console.log('changed to prev slide: slide ' + slide);
+  })
 
   // Chart.js
   Chart.defaults.global.responsive = true;
