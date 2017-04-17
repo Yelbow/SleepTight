@@ -72,8 +72,8 @@
       bottom: 0;
       right: 0;
       margin: auto;
-      height: 120px;
-      width: 120px;
+      height: 100px;
+      width: 100px;
       border-radius: 50%;
 
     }
@@ -85,7 +85,7 @@
     top: 90%;
     width: 100%;
     text-align: center;
-    font-size: 22px;
+    font-size: 20px;
     font-weight: bold;
     color: white;
 
