@@ -39,7 +39,7 @@
 	}
 
 		.hero-image {
-			height: 150px;
+			height: 190px;
 			width: 100%;
 			object-fit: cover;
 		}
@@ -66,15 +66,29 @@
       }
 
     .hero-profielfoto {
-      position: absolute;
+      position: relative;
       top: 0;
       left: 0;
       bottom: 0;
       right: 0;
       margin: auto;
-      height: 60px;
-      width: 60px;
+      height: 120px;
+      width: 120px;
       border-radius: 50%;
+
+    }
+
+    .profielnaam {
+
+    position: absolute;
+    left: 0;
+    top: 90%;
+    width: 100%;
+    text-align: center;
+    font-size: 22px;
+    font-weight: bold;
+    color: white;
+
     }
 
 	#menuBar {
@@ -128,6 +142,7 @@
 			height: 50px;
 			padding: 0 20px;
 			margin: 20px 0;
+
 			box-sizing: border-box;
 		}
 
