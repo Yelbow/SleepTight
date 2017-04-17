@@ -65,9 +65,22 @@ $(document).ready(function () {
 
   var ctx = document.getElementById("myChart");
     var myChart = new Chart(ctx, {
-        responsive: true,
-        maintainAspectRatio: false,
         type: 'line',
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          legend: {
+            display: false
+          },
+          scales: {
+            xAxes: [{
+                display: false
+            }],
+            yAxes: [{
+                display: false
+            }]
+        }
+        },
         data: {
             labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
             datasets: [{
@@ -91,15 +104,6 @@ $(document).ready(function () {
                 ],
                 borderWidth: 1
             }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero:true
-                    }
-                }]
-            }
         }
     });
 
