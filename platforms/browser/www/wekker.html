@@ -21,23 +21,19 @@
     <meta name="msapplication-tap-highlight" content="no">
     <meta http-equiv="Content-Security-Policy" content="img-src 'self' data:">
 
-    <!-- dit geeft errors -->
-    <!-- <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> -->
-
+    <!-- Your app title -->
     <title>Sleep Tight</title>
 
     <!-- This template defaults to the iOS CSS theme. To support both iOS and material design themes, see the Framework7 Tutorial at the link below:
         http://www.idangero.us/framework7/tutorials/maintain-both-ios-and-material-themes-in-single-app.html
      -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.min.js">
+    <script src="js/mychart.js"> </script>
 
-
-    <!-- import css -->
     <link rel="stylesheet" href="lib/framework7/css/framework7.ios.min.css">
     <link rel="stylesheet" href="lib/framework7/css/framework7.ios.colors.min.css">
 
-    <!-- eigen css -->
-    <link rel="stylesheet" href="css/styles.css">
-
+    <link rel="stylesheet" href="css/week.css">
 </head>
 
 <body>
@@ -90,10 +86,10 @@
             </div> -->
             <!-- Pages container, because we use fixed-through navbar and toolbar, it has additional appropriate classes-->
             <div id="menuBar">
-                <a id="page1Btn" class="menuItem active" href="dag.html"><img src="img/night.png" /><span>Dag</span></a>
-                <a id="page2Btn" class="menuItem" href="week.html"><img src="img/week.png" /><span>Week</span></a>
-                <a id="page3Btn" class="menuItem" href="#"><img src="img/alarm.png" /><span>Wekker</span></a>
-                <a id="page4Btn" class="menuItem" href="profiel.html"><img src="img/profiel.png" /><span>Profiel</span></a>
+                <a id="page1Btn" class="menuItem" href="#"><img src="img/night.png" /><span>Dag</span></a>
+                <a id="page2Btn" class="menuItem" href="#"><img src="img/week.png" /><span>Week</span></a>
+                <a id="page3Btn" class="menuItem active" href="#"><img src="img/alarm.png" /><span>Wekker</span></a>
+                <a id="page4Btn" class="menuItem" href="#"><img src="img/profiel.png" /><span>Profiel</span></a>
             </div>
 
             <div class="pages">
@@ -101,88 +97,15 @@
                 <div id="page1" data-page="index" class="page">
                     <!-- Scrollable page content -->
                     <div class="contentWrapper">
-
                         <div id="hero">
                             <img class="hero-image" src="img/hero-dag.jpg" />
-
-                            <div id="hero-slider" class="hero-data swiper-container" dir="ltr">
-                              <div class="hero-date swiper-wrapper">
-                                <script>
-                                  sessionStorage.getItem("aantalDagen");
-                                </script>
-                                <!-- slide 2 . dinsdag -->
-                                <div class="swiper-slide">
-                                  <div class="day-swiper">
-                                    <a class="dayBtn prev-day" href="#"><img class="dateArrow" src="img/arrowLeft.png" /></a>
-                                    <div class="dayDate">
-                                      <span class="firstDay"><strong class="day-txt"><!-- tekst vanuit javascript--></strong></span>
-                                      <span class="date"><!-- tekst vanuit javascript--></span>
-                                    </div>
-                                    <a class="dayBtn next-day" href="#"><img class="dateArrow" src="img/arrowRight.png" /></a>
-                                  </div>
-                                </div>
-
-                              </div>
+                            <div class="hero-data">
+                              <a class="dayBtn prevDay" href="#"><</a>
+                              <span class="dayDate"><strong>dinsdag</strong><br>25 April</span>
+                                <a class="dayBtn nextDay" href="#">></a>
                               <img class="hero-bed" src="img/bedicoon.png" />
                             </div>
                         </div>
-
-                        <div id="sleepDisplay">
-                            <div class="chart">
-                              <div class="chartLabels">
-                                <img class="dataIcon" src="img/wakker.png" />
-                                <img class="dataIcon" src="img/veer.png" />
-                                <img class="dataIcon" src="img/roos.png" />
-                              </div>
-                              <canvas id="myChart"></canvas>
-                            </div>
-                            <div class="timeline">
-                              <div class="playBtn">
-                                <img class="timelineBtn timelinePlay" src="img/play.png" />
-                                <img class="timelineBtn timelinePause" src="img/pause.png" />
-                              </div>
-                              <div class="timeBar">
-
-                              </div>
-                            </div>
-                            <div class="timelineOverlay"></div>
-                        </div>
-                        <div id="sleepData">
-                            <div class="dataBlock">
-                                <div class="dataImage">
-                                  <img class="dataIcon" src="img/draaien.png" />
-                                </div>
-                                <div class="dataText">
-                                    <span class="dataTitle">Gedraaid</span>
-                                    <span class="dataData"><strong>12</strong>x</span>
-                                </div>
-                            </div>
-                            <div class="dataBlock">
-                                <div class="dataImage">
-                                  <img class="dataIcon" src="img/veer.png" />
-                                </div>
-                                <div class="dataText">
-                                    <span class="dataTitle">Lichte slaap</span>
-                                    <span class="dataData"><strong>2</strong>u<strong> 27</strong>m</span>
-                                </div>
-                            </div>
-                            <div class="dataBlock">
-                                <div class="dataImage">
-                                  <img class="dataIcon" src="img/wakker.png" />
-                                </div>
-                                <div class="dataText">
-                                    <span class="dataTitle">Wakker</span>
-                                    <span class="dataData"><strong>2</strong>x</span>
-                                </div>
-                            </div>
-                            <div class="dataBlock">
-                                <div class="dataImage">
-                                  <img class="dataIcon" src="img/roos.png" />
-                                </div>
-                                <div class="dataText">
-                                    <span class="dataTitle">Diepe slaap</span>
-                                    <span class="dataData"><strong>6</strong>u<strong> 12</strong>m</span>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -212,20 +135,11 @@
             </div>
         </div>
     </div>
-    <!-- alle geimporteerde scripts -->
 
-    <!-- deze bestaat helemaal niet -->
-    <!-- <script type="text/javascript" src="cordova.js"></script> -->
-
+    <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="lib/framework7/js/framework7.min.js"></script>
     <script type="text/javascript" src="js/jquery-3.2.0.min.js"></script>
-    <script type="text/javascript" src="js/Chart.js"></script>
-
-    <!-- alle eigen javascript -->
     <script type="text/javascript" src="js/my-app.js"></script>
-    <script type="text/javascript" src="js/movement.js"></script>
-    <script type="text/javascript" src="js/timeline.js"></script>
-
 </body>
 
 </html>

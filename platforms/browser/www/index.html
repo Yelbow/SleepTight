@@ -105,46 +105,20 @@
                         <div id="hero">
                             <img class="hero-image" src="img/hero-dag.jpg" />
 
-                            <div id="hero-slider" class="hero-data swiper-container">
+                            <div id="hero-slider" class="hero-data swiper-container" dir="ltr">
                               <div class="hero-date swiper-wrapper">
-
-                                <!-- slide 1 . maandag -->
-                                <div class="swiper-slide">
-                                  <div class="day-swiper">
-                                    <a class="dayBtn prev-day " href="#"><img class="dateArrow" src="img/arrowLeft.png" /></a>
-                                    <div class="dayDate">
-                                      <span class="day"><strong class="day-txt">maandag</strong></span>
-                                      <span class="date">25 April</span>
-                                    </div>
-                                    <a class="dayBtn next-day" href="#"><img class="dateArrow" src="img/arrowRight.png" /></a>
-
-                                  </div>
-
-
-
-                                </div>
-
+                                <script>
+                                  sessionStorage.getItem("aantalDagen");
+                                </script>
                                 <!-- slide 2 . dinsdag -->
                                 <div class="swiper-slide">
                                   <div class="day-swiper">
                                     <a class="dayBtn prev-day" href="#"><img class="dateArrow" src="img/arrowLeft.png" /></a>
                                     <div class="dayDate">
-                                      <span class="firstDay"><strong class="day-txt">dinsdag</strong></span>
-                                      <span class="date">26 April</span>
+                                      <span class="firstDay"><strong class="day-txt"><!-- tekst vanuit javascript--></strong></span>
+                                      <span class="date"><!-- tekst vanuit javascript--></span>
                                     </div>
                                     <a class="dayBtn next-day" href="#"><img class="dateArrow" src="img/arrowRight.png" /></a>
-                                  </div>
-                                </div>
-
-                                <!-- slide 3 . woensdag -->
-                                <div class="swiper-slide">
-                                  <div class="day-swiper">
-                                    <a class="dayBtn prev-day" href="#"><img class="dateArrow" src="img/arrowLeft.png" /></a>
-                                    <div class="dayDate">
-                                      <span class="day"><strong class="day-txt">woensdag</strong></span>
-                                      <span class="date">27 April</span>
-                                    </div>
-                                    <a class="dayBtn nextDay" href="#"><img class="dateArrow" src="img/arrowRight.png" /></a>
                                   </div>
                                 </div>
 
@@ -160,7 +134,7 @@
                                 <img class="dataIcon" src="img/veer.png" />
                                 <img class="dataIcon" src="img/roos.png" />
                               </div>
-                              <canvas id="myChart" heigth="200px !important"></canvas>
+                              <canvas id="myChart"></canvas>
                             </div>
                             <div class="timeline">
                               <div class="playBtn">
@@ -180,7 +154,7 @@
                                 </div>
                                 <div class="dataText">
                                     <span class="dataTitle">Gedraaid</span>
-                                    <span class="dataTitle">12<strong>x</strong></span>
+                                    <span class="dataData"><strong>12</strong>x</span>
                                 </div>
                             </div>
                             <div class="dataBlock">
@@ -189,7 +163,7 @@
                                 </div>
                                 <div class="dataText">
                                     <span class="dataTitle">Lichte slaap</span>
-                                    <span class="dataTitle">2<strong>u</strong> 27<strong>m</strong></span>
+                                    <span class="dataData"><strong>2</strong>u<strong> 27</strong>m</span>
                                 </div>
                             </div>
                             <div class="dataBlock">
@@ -198,7 +172,7 @@
                                 </div>
                                 <div class="dataText">
                                     <span class="dataTitle">Wakker</span>
-                                    <span class="dataTitle">2<strong>x</strong></span>
+                                    <span class="dataData"><strong>2</strong>x</span>
                                 </div>
                             </div>
                             <div class="dataBlock">
@@ -207,7 +181,7 @@
                                 </div>
                                 <div class="dataText">
                                     <span class="dataTitle">Diepe slaap</span>
-                                    <span class="dataTitle">6<strong>u</strong> 12<strong>m</strong></span>
+                                    <span class="dataData"><strong>6</strong>u<strong> 12</strong>m</span>
                                 </div>
                             </div>
                         </div>

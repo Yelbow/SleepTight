@@ -2,53 +2,98 @@
 $(document).ready(function () {
 
   // Hero-swiper
-  var mySwiper = new Swiper ('.swiper-container', {
-    // Optional parameters
-    direction: 'horizontal',
-    nextButton: '.next-day',
-    prevButton: '.prev-day'
+  var dagen = [["dinsdag1", "11 april"], ["woensdag2", "12 april"], ["donderdag3", "13 april"], ["vrijdag4", "14 april"], ["zaterdag5", "15 april"], ["zondag", "16 april"], ["maandag7", "17 april"]];
 
-  })
+  //var dagen = ["dinsdag1", "woensdag2", "donderdag3", "vrijdag4","zaterdag5", "zondag6", "maandag7"];
+  var slide = dagen.length-1;
 
-  var dagen = ["maandag", "dinsdag", "woensdag"];
-  var slide = 0;
+  // for(var i = 0; i < slide; i++){
+  //   $('.swiper-slide').clone().appendTo('.swiper-wrapper');
+  // }
 
-  mySwiper.on('slideNextStart', function () {
-    slide++;
-    dag = document.getElementsByClassName("day-txt");     // vind alles met class day stop in array
-    txt = document.createTextNode(dagen[slide]);  // stop de goede dag in een text variabele
 
-    for(var i = 0; i < dag.length; i++){              // haal de array leeg tot een day
-      dag[i].innerText = txt.textContent;             // Change the content
-    }
-
-    console.log('changed to next slide: slide ' + slide);
-  });
-
-  mySwiper.on('slidePrevStart', function () {
-    slide--;
+  function currentday(){
     dag = document.getElementsByClassName("day-txt");
-    txt = document.createTextNode(dagen[slide]);
+    txt = document.createTextNode(dagen[slide][0]);
+
+    dagDatum = document.getElementsByClassName("date");
+    txtDatum = document.createTextNode(dagen[slide][1]);
 
     for(var i = 0; i < dag.length; i++){
       dag[i].innerText = txt.textContent;
+      dagDatum[i].innerText = txtDatum.textContent;
     }
 
+
+
+  }
+
+  var mySwiper = new Swiper ('.swiper-container', {
+    // Optional parameters
+    //slidesPerView: 'auto',
+    // loop: true,
+    // loopedSlides: 2,
+    direction: 'horizontal',
+    nextButton: '.next-day',
+    prevButton: '.prev-day',
+    onInit: function(swiper){
+      currentday();
+    }
+    // onSlideChangeEnd: function(swiper){
+    //   slideNr = mySwiper.activeIndex;
+    //   console.log('slideNr: ' + slideNr);
+    // },
+    // onSlideNextStart: function(swiper){
+    //   slide++;
+    //   currentday();
+    //   console.log('changed to next slide: slide ' + slide);
+    // },
+    // onSlidePrevStart: function(swiper){
+    //   slide--;
+    //   currentday();
+    //   console.log('changed to prev slide: slide ' + slide);
+    // }
+  })
+
+
+  // var realSlide = mySwiper.realIndex;
+  // console.log('huidige dag: ' + slide + 'slide' + realSlide );
+  //
+  mySwiper.slideTo(3, 1);
+  //
+  mySwiper.on('slideNextStart', function(){
+    slide++;
+    currentday();
+    console.log('changed to next slide: slide ' + slide);
+  })
+
+  mySwiper.on('slidePrevStart', function(){
+    slide--;
+    currentday();
     console.log('changed to prev slide: slide ' + slide);
-  });
-
-
-
-
+  })
 
   // Chart.js
   Chart.defaults.global.responsive = true;
 
   var ctx = document.getElementById("myChart");
     var myChart = new Chart(ctx, {
-        responsive: true,
-        maintainAspectRatio: false,
         type: 'line',
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          legend: {
+            display: false
+          },
+          scales: {
+            xAxes: [{
+                display: false
+            }],
+            yAxes: [{
+                display: false
+            }]
+        }
+        },
         data: {
             labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
             datasets: [{
@@ -72,15 +117,6 @@ $(document).ready(function () {
                 ],
                 borderWidth: 1
             }]
-        },
-        options: {
-            scales: {
-                yAxes: [{
-                    ticks: {
-                        beginAtZero:true
-                    }
-                }]
-            }
         }
     });
 
