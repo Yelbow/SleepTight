@@ -12,7 +12,8 @@ $(document).ready(function () {
   for(var i = 0; i < slide; i++){
     $('.swiper-slide:nth-child(1)').clone().appendTo('.swiper-wrapper');
   }
-
+  $('a.prev-day').eq(0).toggle();
+  $('a.next-day').eq(slide).toggle();
 
   function currentday(){
     dag = document.getElementsByClassName("day-txt");
@@ -58,11 +59,6 @@ $(document).ready(function () {
   })
   mySwiper.slideTo(slide, 1);
 
-  // var realSlide = mySwiper.realIndex;
-  // console.log('huidige dag: ' + slide + 'slide' + realSlide );
-  //
-
-  //
   mySwiper.on('slideNextStart', function(){
     slide++;
     currentday();
