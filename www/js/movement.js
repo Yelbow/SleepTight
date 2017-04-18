@@ -1,6 +1,6 @@
 // deze file is voor animaties
 $(document).ready(function () {
-
+  
   // Hero-swiper
   var dagen = [["dinsdag1", "11 april"], ["woensdag2", "12 april"], ["donderdag3", "13 april"], ["vrijdag4", "14 april"], ["zaterdag5", "15 april"], ["zondag", "16 april"], ["maandag7", "17 april"]];
 
@@ -12,8 +12,8 @@ $(document).ready(function () {
   for(var i = 0; i < slide; i++){
     $('.swiper-slide:nth-child(1)').clone().appendTo('.swiper-wrapper');
   }
-  $('a.prev-day').eq(0).toggle();
-  $('a.next-day').eq(slide).toggle();
+  $('a.prev-day').eq(0).css("visibility", "hidden");
+  $('a.next-day').eq(slide).css("visibility", "hidden");
 
   function currentday(){
     dag = document.getElementsByClassName("day-txt");
@@ -26,9 +26,6 @@ $(document).ready(function () {
       dag[i].innerText = txt.textContent;
       dagDatum[i].innerText = txtDatum.textContent;
     }
-
-
-
   }
 
   var mySwiper = new Swiper ('.swiper-container', {
