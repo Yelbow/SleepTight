@@ -7,10 +7,13 @@ $(document).ready(function () {
   //var dagen = ["dinsdag1", "woensdag2", "donderdag3", "vrijdag4","zaterdag5", "zondag6", "maandag7"];
   var slide = dagen.length-1;
 
-  // for(var i = 0; i < slide; i++){
-  //   $('.swiper-slide').clone().appendTo('.swiper-wrapper');
-  // }
+  //console.log('aantal in de arr in arr' + dagen.length);
 
+  for(var i = 0; i < slide; i++){
+    $('.swiper-slide:nth-child(1)').clone().appendTo('.swiper-wrapper');
+  }
+  $('a.prev-day').eq(0).toggle();
+  $('a.next-day').eq(slide).toggle();
 
   function currentday(){
     dag = document.getElementsByClassName("day-txt");
@@ -54,13 +57,8 @@ $(document).ready(function () {
     //   console.log('changed to prev slide: slide ' + slide);
     // }
   })
+  mySwiper.slideTo(slide, 1);
 
-
-  // var realSlide = mySwiper.realIndex;
-  // console.log('huidige dag: ' + slide + 'slide' + realSlide );
-  //
-  mySwiper.slideTo(3, 1);
-  //
   mySwiper.on('slideNextStart', function(){
     slide++;
     currentday();
