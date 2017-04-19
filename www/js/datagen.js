@@ -3,7 +3,7 @@ var data = {};
 $(document).ready(function () {
 
   function getSensor15(){
-    var value = $.get("https://u5231p3363.web0091.zxcs.nl/Sleeptight/api/sensor/15", function(result, error){
+    var value = $.get("http://u5231p3363.web0091.zxcs.nl/Sleeptight/api/sensor/15", function(result, error){
       if(error){
         console.log(error)
       } else {
