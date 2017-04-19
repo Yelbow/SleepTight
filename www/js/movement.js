@@ -78,8 +78,6 @@ $(document).ready(function () {
    }
 
    var m = min%60;
-
-   console.log(m);
    if (m < 10) {
      return h + ':0' + m;
    } else{
