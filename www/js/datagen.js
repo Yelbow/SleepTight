@@ -1,9 +1,12 @@
+var data = {};
 
+//var hitsPerKwartier;
+//var lastArr;
 
 $(document).ready(function () {
 
   var sensordata = [["2017-02-17 22:03:00", "start"], ["2017-02-17 22:23:00", "start"], ["2017-02-17 22:28:00", "start"],
-                    ["2017-02-17 23:05:00", "start"], ["2017-02-17 23:25:00", "start"], ["2017-02-17 23:36:00", "start"],
+                    ["2017-02-17 23:05:00", "start"],
                     ["2017-02-17 00:03:00", "start"], ["2017-02-17 00:24:00", "start"], ["2017-02-17 00:43:00", "start"],
                     ["2017-02-17 01:03:00", "start"], ["2017-02-17 01:12:00", "start"], ["2017-02-17 01:16:00", "start"],
                     ["2017-02-17 02:03:00", "start"], ["2017-02-17 02:45:00", "start"], ["2017-02-17 02:59:00", "start"],
@@ -13,60 +16,102 @@ $(document).ready(function () {
   // alle tijden = sensordata[x][0]
   // alle starten = sensordata[x][1]
   var lastArr = sensordata.length-1;
+  var firstDate = new Date(sensordata[0][0]);
 
-  // string to date conversion
+  var startH  = firstDate.getHours();
+  var startM  = firstDate.getMinutes();
+  var startTime   = startH * 60 + startM;
+
+  // console.log('starttime: ' + startTime);
+
+  // string to date conversion & insert time in minutes
   for (i = 0; i <= lastArr ; i++) {
+
     var date = new Date(sensordata[i][0]);
     sensordata[i][0] = date;
+
+    var timeH      = sensordata[i][0].getHours();
+    var timeM      = sensordata[i][0].getMinutes();
+    var totalTime  = timeH * 60 + timeM;
+
+    if (totalTime < startTime){
+      totalTime = totalTime + 1440;
+    };
+
+    sensordata[i].push(totalTime);
+
+    //console.log(sensordata[i][2]);
   }
 
-
-  var startH      = sensordata[0][0].getHours();
-  var startM      = sensordata[0][0].getMinutes();
-  var startTijd   = startH * 60 + startM; // in minuten
-
-  var laatsteH      = sensordata[lastArr][0].getHours();
-  var laatsteM      = sensordata[lastArr][0].getMinutes();
-  var laatsteTijd   = startH * 60 + startM + 1440; // in minuten // dit gaat fout als persoon wakker wordt voor middernacht.
 
   // nieuwe 15 minuten loop rekenen met datasets
-  var alleKwartieren = [];
-  for(i = startTijd; i < laatsteTijd; i = i + 15){
+  var lastTime   = sensordata[lastArr][2];
+  data.hitsPerKwartier = [];
+  var kwartierNR = 0;
+  for(i = startTime; i < lastTime; i = i + 15){
+    var time1 = i;
+    var time2 = i + 15;
+    var aantalHits = 0;
+    kwartierNR++;
+    //console.log(time1 + ' ' + time2);
 
-
-    var time = i;
-    var startInkwartier = [];
-    for (j = 0; j < sensordata.length; j++){
-        var arrhours = sensordata[j][0].getHours();
-        var arrminutes = sensordata[j][0].getMinutes();
-        var arrseconds = sensordata[j][0].getSeconds();
-        if (sensordata[j+1] !== undefined){
-          var next = j + 1;
-          var nextminutes = sensordata[next][0].getMinutes();
+    for (j = 0; j < lastArr; j++) {
+      if (sensordata[j][2] >= time1 && sensordata[j][2] < time2) {
+        if (sensordata[j][1] == "start") {
+          aantalHits++;
         }
-
-
-        var sum = arrminutes + time
-        if(sum < nextminutes){
-          if (sensordata[j][1] == 'start'){
-              var blub = {
-                kwartier: time,
-                data: sensordata[j]
-              }
-              startInkwartier.push(blub)
-          }
-        } else {
-          console.log("blub")
-        }
-        //var n = arrtime.match(/^(?:2[0-3]|[01][0-9]):[0-5][0-9]:[0-5][0-9]$/ );
-        //console.log(n)
+      }
     }
 
+  data.hitsPerKwartier.push([time1, aantalHits]);
 
+  //   if (aantalHits > 0) {
+  //     console.log(aantalHits + ' hits');
+  //   } else {
+  //     console.log('0 hits');
+  //   }
 
-    console.log(startInkwartier)
-    alleKwartieren.push(i);
   }
+
+  console.log(data.hitsPerKwartier);
+
+
+    // var time = i;
+    // var startInkwartier = [];
+    // for (j = 0; j < sensordata.length; j++){
+    //     var arrhours = sensordata[j][0].getHours();
+    //     var arrminutes = sensordata[j][0].getMinutes();
+    //     var arrseconds = sensordata[j][0].getSeconds();
+    //     if (sensordata[j+1] !== undefined){
+    //       var next = j + 1;
+    //       var nextminutes = sensordata[next][0].getMinutes();
+    //     }
+    //
+    //
+    //     var sum = arrminutes + time
+    //     if(sum < nextminutes){
+    //       if (sensordata[j][1] == 'start'){
+    //           var blub = {
+    //             kwartier: time,
+    //             data: sensordata[j]
+    //           }
+    //           startInkwartier.push(blub)
+    //       }
+    //     } else {
+    //       console.log("blub")
+    //     }
+        //var n = arrtime.match(/^(?:2[0-3]|[01][0-9]):[0-5][0-9]:[0-5][0-9]$/ );
+        //console.log(n)
+    // }
+
+
+
+          ///////////////////////////////////////////////////
+
+
+  //   console.log(startInkwartier)
+  //   alleKwartieren.push(i);
+  // }
 
 
   // console.log(startTijd);
