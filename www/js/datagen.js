@@ -2,7 +2,11 @@ var data = {};
 
 $(document).ready(function () {
 
+
+  var sensor15data = getSensor15();
+  var arrSensor15 = [];
   function getSensor15(){
+<<<<<<< HEAD
     var url = ''
     if (window.location.protocol == 'https:'){
       url = "https://crossorigin.me/http://u5231p3363.web0091.zxcs.nl/Sleeptight/api/sensor/15"
@@ -12,13 +16,19 @@ $(document).ready(function () {
     if(url !== ''){
     var value = $.get(url, function(result){
       return result;
-    })
-    return value;
-    }
-  }
+=======
 
-  var sensor15data = getSensor15();
-  console.log(sensor15data);
+    $.get("http://u5231p3363.web0091.zxcs.nl/Sleeptight/api/sensor/15", function(result, error) {
+      //console.log(result);
+      result;
+      for (var key in result){
+        arrSensor15.push(result[key])
+      }
+>>>>>>> c699e357322d0351ba08818aa3928e0e7c14262d
+    })
+
+  }
+  console.log(arrSensor15);
 
   var sensordata = [["2017-02-17 22:03:00", "start"], ["2017-02-17 22:23:00", "start"], ["2017-02-17 22:28:00", "start"],
                     ["2017-02-17 23:05:00", "start"],
@@ -27,6 +37,8 @@ $(document).ready(function () {
                     ["2017-02-17 02:03:00", "start"], ["2017-02-17 02:45:00", "start"], ["2017-02-17 02:59:00", "start"],
                     ["2017-02-17 03:33:00", "start"], ["2017-02-17 03:38:00", "start"], ["2017-02-17 03:51:00", "start"],
                     ["2017-02-17 04:03:00", "start"], ["2017-02-17 04:12:00", "start"], ["2017-02-17 04:34:00", "start"]];
+
+  //sensordata = arrSensor15;
 
   // alle tijden = sensordata[x][0]
   // alle starten = sensordata[x][1]
@@ -88,7 +100,7 @@ $(document).ready(function () {
 
   }
 
-  console.log(data.hitsPerKwartier);
+  // console.log(data.hitsPerKwartier);
 
 
     // var time = i;
