@@ -84,7 +84,7 @@ $(document).ready(function () {
 
   }
 
-  console.log(data.hitsPerKwartier);
+  // console.log(data.hitsPerKwartier);
 
 
     // var time = i;
