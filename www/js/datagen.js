@@ -3,10 +3,18 @@ var data = {};
 $(document).ready(function () {
 
   function getSensor15(){
-    var value = $.get("http://u5231p3363.web0091.zxcs.nl/Sleeptight/api/sensor/15", function(result){
+    var url = ''
+    if (window.location.protocol == 'https:'){
+      url = "https://crossoriginme.me/http://u5231p3363.web0091.zxcs.nl/Sleeptight/api/sensor/15"
+    } else {
+      url = "http://u5231p3363.web0091.zxcs.nl/Sleeptight/api/sensor/15"
+    }
+    if(url !== ''){
+    var value = $.get(url, function(result){
       return result;
     })
     return value;
+    }
   }
 
   var sensor15data = getSensor15();
