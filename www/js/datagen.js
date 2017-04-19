@@ -5,7 +5,7 @@ $(document).ready(function () {
   function getSensor15(){
     var url = ''
     if (window.location.protocol == 'https:'){
-      url = "https://crossoriginme.me/http://u5231p3363.web0091.zxcs.nl/Sleeptight/api/sensor/15"
+      url = "https://crossorigin.me/http://u5231p3363.web0091.zxcs.nl/Sleeptight/api/sensor/15"
     } else {
       url = "http://u5231p3363.web0091.zxcs.nl/Sleeptight/api/sensor/15"
     }
