@@ -3,8 +3,8 @@ var data = {};
 $(document).ready(function () {
 
 
-  var sensor15data = getSensor15();
-  var arrSensor15 = [];
+
+
   function getSensor15(){
 
     var url = ''
@@ -14,18 +14,24 @@ $(document).ready(function () {
       url = "http://u5231p3363.web0091.zxcs.nl/Sleeptight/api/sensor/15"
     }
       if(url !== ''){
-
+      var testarr = {}
       $.get("http://u5231p3363.web0091.zxcs.nl/Sleeptight/api/sensor/15", function(result, error) {
         //console.log(result);
-        result;
-        for (var key in result){
-          arrSensor15.push(result[key]);
-        }
+          let i = 0;
+          for (var key in result){
+           testarr[key] = result[key]
+           i++;
+          }
 
       })
+      return testarr
     }
   }
-  console.log(arrSensor15);
+  var sensor15data = getSensor15();
+  console.log(sensor15data)
+  for(var key in sensor15data){
+    console.log(sensor15data[key])
+  }
 
   var sensordata = [["2017-02-17 22:03:00", "start"], ["2017-02-17 22:23:00", "start"], ["2017-02-17 22:28:00", "start"],
                     ["2017-02-17 23:05:00", "start"],
