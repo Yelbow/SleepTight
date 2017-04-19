@@ -8,5 +8,11 @@ $(document).ready(function () {
     })
   }
 
+  var getSensorData = function(){
+    $.get("", function(){
+      console.log()
+    })
+  }
+
 
 }
