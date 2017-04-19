@@ -2,19 +2,21 @@ var data = {};
 
 $(document).ready(function () {
 
-  function getSensor15(){
-    var value = $.get("http://u5231p3363.web0091.zxcs.nl/Sleeptight/api/sensor/15", function(result, error){
-      if(error){
-        console.log(error)
-      } else {
-        return result;
-      }
-    })
-    return value;
-  }
 
   var sensor15data = getSensor15();
-  console.log(sensor15data);
+  var arrSensor15 = [];
+  function getSensor15(){
+
+    $.get("http://u5231p3363.web0091.zxcs.nl/Sleeptight/api/sensor/15", function(result, error) {
+
+      //console.log(result);
+      result;
+      for (var key in result){
+        arrSensor15.push(result[key])
+      }
+    })
+  }
+  console.log(arrSensor15);
 
   var sensordata = [["2017-02-17 22:03:00", "start"], ["2017-02-17 22:23:00", "start"], ["2017-02-17 22:28:00", "start"],
                     ["2017-02-17 23:05:00", "start"],
@@ -23,6 +25,8 @@ $(document).ready(function () {
                     ["2017-02-17 02:03:00", "start"], ["2017-02-17 02:45:00", "start"], ["2017-02-17 02:59:00", "start"],
                     ["2017-02-17 03:33:00", "start"], ["2017-02-17 03:38:00", "start"], ["2017-02-17 03:51:00", "start"],
                     ["2017-02-17 04:03:00", "start"], ["2017-02-17 04:12:00", "start"], ["2017-02-17 04:34:00", "start"]];
+
+  //sensordata = arrSensor15;
 
   // alle tijden = sensordata[x][0]
   // alle starten = sensordata[x][1]
