@@ -6,7 +6,6 @@ $(document).ready(function () {
   var sensor15data = getSensor15();
   var arrSensor15 = [];
   function getSensor15(){
-<<<<<<< HEAD
 
     $.get("http://u5231p3363.web0091.zxcs.nl/Sleeptight/api/sensor/15", function(result, error) {
       //console.log(result);
@@ -15,20 +14,7 @@ $(document).ready(function () {
         arrSensor15.push(result[key])
       }
     })
-=======
-    var url = ''
-    if (window.location.protocol == 'https:'){
-      url = "https://crossoriginme.me/http://u5231p3363.web0091.zxcs.nl/Sleeptight/api/sensor/15"
-    } else {
-      url = "http://u5231p3363.web0091.zxcs.nl/Sleeptight/api/sensor/15"
-    }
-    if(url !== ''){
-    var value = $.get(url, function(result){
-      return result;
-    })
-    return value;
-    }
->>>>>>> origin/master
+
   }
   console.log(arrSensor15);
 
