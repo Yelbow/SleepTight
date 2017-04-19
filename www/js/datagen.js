@@ -13,20 +13,17 @@ $(document).ready(function () {
     } else {
       url = "http://u5231p3363.web0091.zxcs.nl/Sleeptight/api/sensor/15"
     }
-    if(url !== ''){
-    var value = $.get(url, function(result){
-      return result;
+      if(url !== ''){
 
+      $.get("http://u5231p3363.web0091.zxcs.nl/Sleeptight/api/sensor/15", function(result, error) {
+        //console.log(result);
+        result;
+        for (var key in result){
+          arrSensor15.push(result[key]);
+        }
 
-    $.get("http://u5231p3363.web0091.zxcs.nl/Sleeptight/api/sensor/15", function(result, error) {
-      //console.log(result);
-      result;
-      for (var key in result){
-        arrSensor15.push(result[key])
-      }
-
-    })
-
+      })
+    }
   }
   console.log(arrSensor15);
 
