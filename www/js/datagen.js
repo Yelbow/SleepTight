@@ -8,7 +8,6 @@ $(document).ready(function () {
   function getSensor15(){
 
     $.get("http://u5231p3363.web0091.zxcs.nl/Sleeptight/api/sensor/15", function(result, error) {
-
       //console.log(result);
       result;
       for (var key in result){
