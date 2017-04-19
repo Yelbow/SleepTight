@@ -78,6 +78,19 @@
 
     }
 
+    .hero-editbutton {
+
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: auto;
+      padding: 0 0 70px 70px;
+      height: 30px;
+      width: 30px;
+    }
+
     .profielnaam {
 
     position: absolute;
@@ -129,10 +142,16 @@
     }
 
 	#sleepData {
+    position: absolute;
+    left: 0;
+    top: 30%;
+    width: 100%;
+
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-around;
 		flex:2;
+
 	}
 
 		.dataBlock {

@@ -1,9 +1,16 @@
 var data = {};
 
-//var hitsPerKwartier;
-//var lastArr;
-
 $(document).ready(function () {
+
+  function getSensor15(){
+    var value = $.get("http://u5231p3363.web0091.zxcs.nl/Sleeptight/api/sensor/15", function(result){
+      return result;
+    })
+    return value;
+  }
+
+  var sensor15data = getSensor15();
+  console.log(sensor15data);
 
   var sensordata = [["2017-02-17 22:03:00", "start"], ["2017-02-17 22:23:00", "start"], ["2017-02-17 22:28:00", "start"],
                     ["2017-02-17 23:05:00", "start"],

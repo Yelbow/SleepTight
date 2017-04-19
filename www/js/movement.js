@@ -78,8 +78,6 @@ $(document).ready(function () {
    }
 
    var m = min%60;
-
-   console.log(m);
    if (m < 10) {
      return h + ':0' + m;
    } else{
@@ -88,9 +86,9 @@ $(document).ready(function () {
 
  }
 
- console.log(data.hitsPerKwartier[1][0]);
- var eersteLabel = minToHours(data.hitsPerKwartier[1][0]);
- console.log('hourstomin uitgevoerd: ' + eersteLabel);
+ //console.log(data.hitsPerKwartier[1][0]);
+ //var eersteLabel = minToHours(data.hitsPerKwartier[1][0]);
+ //console.log('hourstomin uitgevoerd: ' + eersteLabel);
 
 
   var lastArrHits = data.hitsPerKwartier.length-1;
