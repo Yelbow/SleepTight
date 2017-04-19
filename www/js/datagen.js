@@ -6,7 +6,7 @@ $(document).ready(function () {
   var sensor15data = getSensor15();
   var arrSensor15 = [];
   function getSensor15(){
-<<<<<<< HEAD
+
     var url = ''
     if (window.location.protocol == 'https:'){
       url = "https://crossorigin.me/http://u5231p3363.web0091.zxcs.nl/Sleeptight/api/sensor/15"
@@ -16,7 +16,7 @@ $(document).ready(function () {
     if(url !== ''){
     var value = $.get(url, function(result){
       return result;
-=======
+
 
     $.get("http://u5231p3363.web0091.zxcs.nl/Sleeptight/api/sensor/15", function(result, error) {
       //console.log(result);
@@ -24,7 +24,7 @@ $(document).ready(function () {
       for (var key in result){
         arrSensor15.push(result[key])
       }
->>>>>>> c699e357322d0351ba08818aa3928e0e7c14262d
+
     })
 
   }
