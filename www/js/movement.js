@@ -1,6 +1,6 @@
 // deze file is voor animaties
 $(document).ready(function () {
-  
+
   // Hero-swiper
   var dagen = [["dinsdag1", "11 april"], ["woensdag2", "12 april"], ["donderdag3", "13 april"], ["vrijdag4", "14 april"], ["zaterdag5", "15 april"], ["zondag", "16 april"], ["maandag7", "17 april"]];
 
@@ -69,6 +69,34 @@ $(document).ready(function () {
   })
 
   // Chart.js
+
+ function minToHours(min){
+   var h = min/60;
+   h = h.toFixed(0);
+   var m = min%60;
+
+   return h + ':' + m;
+ }
+ console.log(data.hitsPerKwartier[1][0]);
+ var eersteLabel = minToHours(data.hitsPerKwartier[1][0]);
+ console.log('hourstomin uitgevoerd: ' + eersteLabel);
+
+
+  var lastArrHits = data.hitsPerKwartier.length-1;
+  var hitsData = [];
+  for (i = 0; i <= lastArrHits ; i++) {
+    //console.log(data.hitsPerKwartier[i]);
+    hits = data.hitsPerKwartier[i][1];
+    hitsData.push(hits);
+  }
+
+  for(var i = 0; i < slide; i++){
+    $('.swiper-slide:nth-child(1)').clone().appendTo('.swiper-wrapper');
+  }
+
+
+
+  //console.log(hitsData);
   Chart.defaults.global.responsive = true;
 
   var ctx = document.getElementById("myChart");
@@ -90,12 +118,12 @@ $(document).ready(function () {
         }
         },
         data: {
-            labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+            labels: hitsData,
             datasets: [{
                 label: '# of Votes',
-                data: [1, 4, 3, 5, 2, 3],
+                data: hitsData,
                 backgroundColor: [
-                    'rgba(255, 99, 132, 0.2)',
+                    // 'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
                     'rgba(255, 206, 86, 0.2)',
                     'rgba(75, 192, 192, 0.2)',
@@ -103,7 +131,7 @@ $(document).ready(function () {
                     'rgba(255, 159, 64, 0.2)'
                 ],
                 borderColor: [
-                    'rgba(255,99,132,1)',
+                    // 'rgba(255,99,132,1)',
                     'rgba(54, 162, 235, 1)',
                     'rgba(255, 206, 86, 1)',
                     'rgba(75, 192, 192, 1)',
