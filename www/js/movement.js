@@ -73,12 +73,19 @@ $(document).ready(function () {
  function minToHours(min){
    var h = min/60;
    h = h.toFixed(0);
-   var m = min%60;
-   if (m.length < 2) {
-     m = '0' + m;
+   if (h > 24){
+     h = h-24;
    }
 
-   return h + ':' + m;
+   var m = min%60;
+
+   console.log(m);
+   if (m < 10) {
+     return h + ':0' + m;
+   } else{
+     return h + ':' + m;
+   }
+
  }
 
  console.log(data.hitsPerKwartier[1][0]);
@@ -88,23 +95,20 @@ $(document).ready(function () {
 
   var lastArrHits = data.hitsPerKwartier.length-1;
   var hitsData = [];
+  var hitsTime = [];
   for (i = 0; i <= lastArrHits ; i++) {
     //console.log(data.hitsPerKwartier[i]);
     hits = data.hitsPerKwartier[i][1];
     hitsData.push(hits);
 
-    var time  = minToHours(data.hitsPerKwartier[i][0]);
+    time  = minToHours(data.hitsPerKwartier[i][0]);
+    hitsTime.push(time);
+
     // var span  = document.createElement('span');
     var txt   = document.createTextNode(time);
 
     $('.timeBar').append('<span>'+time+'</span>');
   }
-
-  for(var i = 0; i < slide; i++){
-    $('.swiper-slide:nth-child(1)').clone().appendTo('.swiper-wrapper');
-  }
-
-
 
   //console.log(hitsData);
   Chart.defaults.global.responsive = true;
@@ -128,7 +132,7 @@ $(document).ready(function () {
         }
         },
         data: {
-            labels: hitsData,
+            labels: hitsTime,
             datasets: [{
                 label: '# of Votes',
                 data: hitsData,
