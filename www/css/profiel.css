@@ -104,6 +104,7 @@
 
     }
 
+
 	#menuBar {
 		display: flex;
 		justify-content: space-between;
@@ -141,12 +142,7 @@
       object-fit: cover;
     }
 
-	#sleepData {
-    position: absolute;
-    left: 0;
-    top: 30%;
-    width: 100%;
-
+	#sleepData {    
 		display: flex;
 		flex-wrap: wrap;
 		justify-content: space-around;
@@ -157,10 +153,10 @@
 		.dataBlock {
 			display: flex;
 			justify-content: space-between;
-			width: 50%;
+			width: 15%;
 			height: 50px;
-			padding: 0 20px;
-			margin: 20px 0;
+			padding: 10px 20px;
+			margin: 40px auto;
 
 			box-sizing: border-box;
 		}
@@ -175,10 +171,28 @@
 
 			.dataText {
 				display: flex;
-				flex-direction: column;
+				flex-direction: row;
 				justify-content: space-between;
 				flex: 2;
 			}
+
+      .gemiddeld {
+
+        font-size: 10px;
+      }
+
+      .Text {
+
+      display: flex;
+      flex-direction: column;
+
+
+      }
+
+      .dataData {
+
+        margin: 0 150px;
+      }
 
       .views {
         overflow: auto;
