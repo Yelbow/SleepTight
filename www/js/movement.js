@@ -74,9 +74,13 @@ $(document).ready(function () {
    var h = min/60;
    h = h.toFixed(0);
    var m = min%60;
+   if (m.length < 2) {
+     m = '0' + m;
+   }
 
    return h + ':' + m;
  }
+
  console.log(data.hitsPerKwartier[1][0]);
  var eersteLabel = minToHours(data.hitsPerKwartier[1][0]);
  console.log('hourstomin uitgevoerd: ' + eersteLabel);
@@ -88,6 +92,12 @@ $(document).ready(function () {
     //console.log(data.hitsPerKwartier[i]);
     hits = data.hitsPerKwartier[i][1];
     hitsData.push(hits);
+
+    var time  = minToHours(data.hitsPerKwartier[i][0]);
+    // var span  = document.createElement('span');
+    var txt   = document.createTextNode(time);
+
+    $('.timeBar').append('<span>'+time+'</span>');
   }
 
   for(var i = 0; i < slide; i++){
