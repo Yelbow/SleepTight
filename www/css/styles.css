@@ -129,6 +129,39 @@
       width: 60px;
     }
 
+  .hero-user,
+  .user-change,
+  .username {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+  }
+
+  .hero-user {
+    width: 100px;
+    height: auto;
+    z-index: 2;
+  }
+
+  .user-change {
+    width: 30px;
+    height: auto;
+    padding-left: 70px;
+    padding-bottom: 70px;
+    z-index: 3;
+  }
+
+  .username {
+    padding-top: 140px;
+    text-align: center;
+    font-size: 1.1em;
+    font-weight: bold;
+    color: white;
+  }
+
 	#sleepDisplay {
 		height: 240px;
     position: relative;
@@ -235,6 +268,13 @@
     padding: 20px 0;
 	}
 
+  #sleepData.gemiddeld {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 40px;
+  }
+
 		.dataBlock {
 			display: flex;
 			justify-content: center;
@@ -244,6 +284,11 @@
 			padding: 10px;
 			box-sizing: border-box;
 		}
+
+    .dataBlock.gemiddeld {
+      width: 100%;
+      max-width: 250px;
+    }
 
       .dataImage {
         background: #6a6682;
