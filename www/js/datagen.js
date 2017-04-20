@@ -2,31 +2,29 @@ var data = {};
 
 $(document).ready(function () {
 
-
-
-
   function getSensor15(){
 
-    var url = ''
+    var url = '';
     if (window.location.protocol == 'https:'){
       url = "https://crossorigin.me/http://u5231p3363.web0091.zxcs.nl/Sleeptight/api/sensor/15"
     } else {
       url = "http://u5231p3363.web0091.zxcs.nl/Sleeptight/api/sensor/15"
-    }
-      if(url !== ''){
-      var testarr = {}
+    } // if
+
+    if(url !== ''){
+      var testarr = {};
       $.get("http://u5231p3363.web0091.zxcs.nl/Sleeptight/api/sensor/15", function(result, error) {
-        //console.log(result);
+          //console.log(result);
           let i = 0;
           for (var key in result){
-           testarr[key] = result[key]
-           i++;
-          }
+            testarr[key] = result[key];
+            i++;
+          } // for
+      }) // get
+      return testarr;
+    } // if url
+  } // getSensor15
 
-      })
-      return testarr
-    }
-  }
   var sensor15data = getSensor15();
   console.log(sensor15data)
   for(var key in sensor15data){
