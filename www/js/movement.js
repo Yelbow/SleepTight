@@ -105,7 +105,9 @@ $(document).ready(function () {
 
     // var span  = document.createElement('span');
     var txt   = document.createTextNode(time);
-    $('.timeBar').append('<span>'+time+'</span>');
+    if (i % 2) {
+      $('.timeBar').append('<span>'+time+'</span>');
+    }
   }
 
   //console.log(hitsData);

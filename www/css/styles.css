@@ -244,8 +244,9 @@
       }
 
       .timeBar span{
-        font-size: 6px;
+        font-size: .5em;
         color: #fff;
+        transform: rotate(-45deg);
       }
 
       .timelineOverlay {
