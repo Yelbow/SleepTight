@@ -1,7 +1,12 @@
+// global variable bruikbaar in alle bestanden.
 var data = {};
 
 $(document).ready(function () {
 
+// connectie met api van onszelf
+var loaded = false;
+
+  var testarr;
   function getSensor15(){
 
     var url = '';
@@ -12,44 +17,33 @@ $(document).ready(function () {
     } // if
 
     if(url !== ''){
-      var testarr = [];
-      //$.ajax({
-      //  type: "GET",
-      //  url: url,
-      //  async:false,
-      //  success: function (result) {
-      //    let i = 0;
-      //    for (var key in result){
-      //      testarr[key] = result[key];
-      //      i++;
-      //  }
-     //});
-     //return testarr;
-      $.get("http://u5231p3363.web0091.zxcs.nl/Sleeptight/api/sensor/15", function(result, error) {
-      }) // get
-      .done(function(result) {
-          alert( "second success" );
-          for (var i=0;i<result.length;i++){
-              (function(i){
-                testarr.push(result[i])
-                  //make all your async calls using `i`
 
-                })(i);
+
+      $.ajax({
+       type: "GET",
+       url: url,
+       async: true,
+       success: function (result) {
+         //console.log(result)
+         testarr = [];
+         loaded = true;
+         let i = 0;
+         for (var key in result){
+           testarr[key] = result[key];
+           i++;
         }
-      })
-      return testarr;
+      }
+      });
+      // return testarr;
     } // if url
   } // getSensor15
 
-  var sensor15data = getSensor15();
-  console.log(sensor15data);
-  if(sensor15data !== []){
-    for(var key in sensor15data){
-      console.log(sensor15data[key]);
-    }
-  }
+getSensor15();
+setTimeout( function(){
+  var sensor15data = testarr;
+}, 3000 )
 
-  var sensordata = [["2017-02-17 22:03:00", "start"], ["2017-02-17 22:23:00", "start"], ["2017-02-17 22:28:00", "start"],
+  var sensordata = [["2017-02-17 22:03:00", "start",], ["2017-02-17 22:23:00", "start"], ["2017-02-17 22:28:00", "start"],
                     ["2017-02-17 23:05:00", "start"],
                     ["2017-02-17 00:03:00", "start"], ["2017-02-17 00:24:00", "start"], ["2017-02-17 00:43:00", "start"],
                     ["2017-02-17 01:03:00", "start"], ["2017-02-17 01:12:00", "start"], ["2017-02-17 01:16:00", "start"],
@@ -99,8 +93,9 @@ $(document).ready(function () {
     var time2 = i + 15;
     var aantalHits = 0;
     kwartierNR++;
-    //console.log(time1 + ' ' + time2);
 
+    // loop over de array heen,
+    // kijk of de tijden overeenkomen met de tijden van dit kwartier.
     for (j = 0; j < lastArr; j++) {
       if (sensordata[j][2] >= time1 && sensordata[j][2] < time2) {
         if (sensordata[j][1] == "start") {
@@ -110,14 +105,8 @@ $(document).ready(function () {
     }
 
   data.hitsPerKwartier.push([time1, aantalHits]);
-
-  //   if (aantalHits > 0) {
-  //     console.log(aantalHits + ' hits');
-  //   } else {
-  //     console.log('0 hits');
-  //   }
-
   }
+
 
   // console.log(data.hitsPerKwartier);
 
