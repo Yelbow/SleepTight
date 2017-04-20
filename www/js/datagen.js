@@ -12,23 +12,41 @@ $(document).ready(function () {
     } // if
 
     if(url !== ''){
-      var testarr = {};
+      var testarr = [];
+      //$.ajax({
+      //  type: "GET",
+      //  url: url,
+      //  async:false,
+      //  success: function (result) {
+      //    let i = 0;
+      //    for (var key in result){
+      //      testarr[key] = result[key];
+      //      i++;
+      //  }
+     //});
+     //return testarr;
       $.get("http://u5231p3363.web0091.zxcs.nl/Sleeptight/api/sensor/15", function(result, error) {
-          //console.log(result);
-          let i = 0;
-          for (var key in result){
-            testarr[key] = result[key];
-            i++;
-          } // for
       }) // get
+      .done(function(result) {
+          alert( "second success" );
+          for (var i=0;i<result.length;i++){
+              (function(i){
+                testarr.push(result[i])
+                  //make all your async calls using `i`
+
+                })(i);
+        }
+      })
       return testarr;
     } // if url
   } // getSensor15
 
   var sensor15data = getSensor15();
   console.log(sensor15data);
-  for(var key in sensor15data){
-    console.log(sensor15data[key]);
+  if(sensor15data !== []){
+    for(var key in sensor15data){
+      console.log(sensor15data[key]);
+    }
   }
 
   var sensordata = [["2017-02-17 22:03:00", "start"], ["2017-02-17 22:23:00", "start"], ["2017-02-17 22:28:00", "start"],
