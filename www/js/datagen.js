@@ -4,44 +4,44 @@ var data = {};
 $(document).ready(function () {
 
 // connectie met api van onszelf
-var loaded = false;
-
-  var testarr;
-  function getSensor15(){
-
-    var url = '';
-    if (window.location.protocol == 'https:'){
-      url = "https://crossorigin.me/http://u5231p3363.web0091.zxcs.nl/Sleeptight/api/sensor/15"
-    } else {
-      url = "http://u5231p3363.web0091.zxcs.nl/Sleeptight/api/sensor/15"
-    } // if
-
-    if(url !== ''){
-
-
-      $.ajax({
-       type: "GET",
-       url: url,
-       async: true,
-       success: function (result) {
-         //console.log(result)
-         testarr = [];
-         loaded = true;
-         let i = 0;
-         for (var key in result){
-           testarr[key] = result[key];
-           i++;
-        }
-      }
-      });
-      // return testarr;
-    } // if url
-  } // getSensor15
-
-getSensor15();
-setTimeout( function(){
-  var sensor15data = testarr;
-}, 3000 )
+// var loaded = false;
+//
+//   var testarr;
+//   function getSensor15(){
+//
+//     var url = '';
+//     if (window.location.protocol == 'https:'){
+//       url = "https://crossorigin.me/http://u5231p3363.web0091.zxcs.nl/Sleeptight/api/sensor/15"
+//     } else {
+//       url = "http://u5231p3363.web0091.zxcs.nl/Sleeptight/api/sensor/15"
+//     } // if
+//
+//     if(url !== ''){
+//
+//
+//       $.ajax({
+//        type: "GET",
+//        url: url,
+//        async: true,
+//        success: function (result) {
+//          //console.log(result)
+//          testarr = [];
+//          loaded = true;
+//          let i = 0;
+//          for (var key in result){
+//            testarr[key] = result[key];
+//            i++;
+//         }
+//       }
+//       });
+//       // return testarr;
+//     } // if url
+//   } // getSensor15
+//
+// getSensor15();
+// setTimeout( function(){
+//   var sensor15data = testarr;
+// }, 3000 )
 
   var sensordata = [["2017-02-17 22:03:00", "start",], ["2017-02-17 22:23:00", "start"], ["2017-02-17 22:28:00", "start"],
                     ["2017-02-17 23:05:00", "start"],
@@ -52,7 +52,6 @@ setTimeout( function(){
                     ["2017-02-17 04:03:00", "start"], ["2017-02-17 04:12:00", "start"], ["2017-02-17 04:34:00", "start"]];
 
   //sensordata = arrSensor15;
-
   // alle tijden = sensordata[x][0]
   // alle starten = sensordata[x][1]
   var lastArr = sensordata.length-1;
