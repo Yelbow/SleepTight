@@ -26,9 +26,9 @@ $(document).ready(function () {
   } // getSensor15
 
   var sensor15data = getSensor15();
-  console.log(sensor15data)
+  console.log(sensor15data);
   for(var key in sensor15data){
-    console.log(sensor15data[key])
+    console.log(sensor15data[key]);
   }
 
   var sensordata = [["2017-02-17 22:03:00", "start"], ["2017-02-17 22:23:00", "start"], ["2017-02-17 22:28:00", "start"],
